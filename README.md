@@ -39,7 +39,7 @@ O principal objetivo deste projeto é praticar conceitos de:
 # 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/kaua-sousa12/Grupo-9-Cal-ados-Turma-A.git
 ```
 
 ---
