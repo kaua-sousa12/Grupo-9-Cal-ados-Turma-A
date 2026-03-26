@@ -92,10 +92,10 @@ http://localhost:4200
 
 # Autores
 
-Eduardo Santos
-Gabriel Souza
-Gabriel Vinicius
-Kauan
+- Eduardo Santos
+- Gabriel Souza
+- Gabriel Vinicius
+- Kauan
 ---
 
 # Observações
