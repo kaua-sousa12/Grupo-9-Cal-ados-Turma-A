@@ -5,6 +5,7 @@ export interface Usuario {
     telefone: string;
     profissao: string;
 }
+
 export interface Produto {
     id: number;
     nome: string;
