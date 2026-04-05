@@ -21,6 +21,7 @@ export class CadastroUsuario {
   };
 
   constructor(private api: ApiService, private router: Router) { }
+  
 
   cadastrar() {
 
@@ -46,6 +47,7 @@ export class CadastroUsuario {
           profissao: '',
           senha: ''
         };
+         this.router.navigate(['/login']);
       },
       error: (err) => {
         console.error(err);

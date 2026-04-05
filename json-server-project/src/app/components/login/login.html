@@ -9,13 +9,13 @@
 
             <form action="Untitled-1.html">
                 <div class="form-group">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Senha" required>
+                    <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" required>
                 </div>
 
-                <button type="submit" class="btn-entrar">ENTRAR</button>
+                <button type="submit" (click)="login()" class="btn-entrar">ENTRAR</button>
             </form>
 
             <div class="signup-link">
