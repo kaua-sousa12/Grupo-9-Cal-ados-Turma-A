@@ -5,16 +5,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: #f0f0f0;
-    height: 100vh;
-}
-
 .container {
     display: flex;
     height: 100%;
 }
-
 
 .sidebar {
     width: 250px;
@@ -131,14 +125,6 @@ td {
     font-size: 22px;
     font-weight: 600;
     color: #000;
-}
-
-.perfil {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding-top: 25px;
-    border-top: 1px solid #ccc;
 }
 
 .perfil .avatar {

@@ -1,16 +1,50 @@
-.main-container {
-    display: flex;
-    min-height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
 
 .sidebar {
     width: 250px;
     background-color: #e0e0e0;
-    padding: 40px 20px;
+    border-right: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-shrink: 0; 
+    padding: 40px 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.sidebar li.active {
+    background-color: #c0c0c0;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
 }
 
 
@@ -78,18 +112,10 @@ td { padding: 15px; border-top: 1px solid #b0b0b0; }
     border-radius: 5px;
 }
 
-perfil span {
+.perfil > span {
     font-size: 22px;    
     font-weight: 600;   
     color: #000;       
-}
-
-.perfil {
-    display: flex;
-    align-items: center;
-    gap: 15px;        
-    padding-top: 25px;
-    border-top: 1px solid #ccc;
 }
 
 .perfil .avatar {

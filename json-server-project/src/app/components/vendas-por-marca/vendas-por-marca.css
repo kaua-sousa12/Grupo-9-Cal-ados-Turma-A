@@ -1,21 +1,55 @@
-.main-container {
-    display: flex;
-    min-height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
 
 .sidebar {
     width: 250px;
     background-color: #e0e0e0;
-    padding: 40px 20px;
+    border-right: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-shrink: 0; 
+    padding: 40px 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.sidebar li.active {
+    background-color: #c0c0c0;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
 }
 
 
 .content {
-    flex: 1; 
+    flex: 1;
     padding: 40px;
     background-color: #f5f5f5;
 }
@@ -42,13 +76,17 @@
 }
 
 
-.sidebar ul { list-style: none; }
+.sidebar ul {
+    list-style: none;
+}
+
 .sidebar a {
     text-decoration: none;
     color: #333;
     display: block;
     padding: 10px;
 }
+
 .sidebar a.active {
     background-color: #c0c0c0;
     font-weight: bold;
@@ -62,9 +100,22 @@
     border-radius: 8px;
     margin-top: 20px;
 }
-table { width: 100%; border-collapse: collapse; }
-th { text-align: left; padding: 15px; background: #bcbcbc; }
-td { padding: 15px; border-top: 1px solid #b0b0b0; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    background: #bcbcbc;
+}
+
+td {
+    padding: 15px;
+    border-top: 1px solid #b0b0b0;
+}
 
 
 .main-container {
@@ -78,22 +129,14 @@ td { padding: 15px; border-top: 1px solid #b0b0b0; }
     border-radius: 5px;
 }
 
-perfil span {
-    font-size: 22px;    
-    font-weight: 600;   
-    color: #000;       
-}
-
-.perfil {
-    display: flex;
-    align-items: center;
-    gap: 15px;        
-    padding-top: 25px;
-    border-top: 1px solid #ccc;
+.perfil > span {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
 }
 
 .perfil .avatar {
-    font-size: 40px;    
+    font-size: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,12 +148,12 @@ perfil span {
 
 a {
     text-decoration: none;
-    color: inherit; 
+    color: inherit;
     display: block;
     width: 100%;
     height: 100%;
 }
 
-a:hover{
-  font-weight: bold;
+a:hover {
+    font-weight: bold;
 }
