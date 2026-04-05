@@ -1,17 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-/* Reset básico */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-line-height: 1.6;
-color: #333;
-background-color: #f5f5f5;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
-/* Estilo para inputs */
-input, textarea, select { font-family: inherit; }
-/* Botões */
-button { cursor: pointer; font-family: inherit; }
-button:disabled { opacity: 0.6; cursor: not-allowed; }
-/* Links */
-a { color: #667eea; text-decoration: none; }
-a:hover { text-decoration: underline; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Dosis', 'Helvetica', 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+

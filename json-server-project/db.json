@@ -1,64 +1,92 @@
 {
-    "usuarios": [
-        {
-            "id": 1,
-            "nome": "João Silva",
-            "email": "joao@email.com",
-            "telefone": "(11) 98765-4321",
-            "profissao": "Desenvolvedor"
-        },
-        {
-            "id": 2,
-            "nome": "Maria Santos",
-            "email": "maria@email.com",
-            "telefone": "(21) 99876-5432",
-            "profissao": "Designer"
-        },
-        {
-            "id": 3,
-            "nome": "Pedro Oliveira",
-            "email": "pedro@email.com",
-            "telefone": "(31) 97654-3210",
-            "profissao": "Gerente de Projetos"
-        }
-    ],
-    "produtos": [
-        {
-            "id": 1,
-            "nome": "Notebook",
-            "preco": 3500,
-            "estoque": 15,
-            "categoria": "Eletrônicos"
-        },
-        {
-            "id": 2,
-            "nome": "Mouse",
-            "preco": 50,
-            "estoque": 100,
-            "categoria": "Eletrônicos"
-        },
-        {
-            "id": 3,
-            "nome": "Teclado",
-            "preco": 150,
-            "estoque": 50,
-            "categoria": "Eletrônicos"
-        }
-    ],
-    "posts": [
-        {
-            "id": 1,
-            "titulo": "Introdução ao Angular",
-            "conteudo": "Angular é um framework poderoso...",
-            "autor": "João Silva",
-            "data": "2026-03-01"
-        },
-        {
-            "id": 2,
-            "titulo": "JSON Server na prática",
-            "conteudo": "JSON Server facilita o desenvolvimento...",
-            "autor": "Maria Santos",
-            "data": "2026-03-10"
-        }
-    ]
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "telefone": "(11) 98765-4321",
+      "profissao": "Desenvolvedor",
+      "senha": "1234"
+    },
+    {
+      "nome": "Ney do senac",
+      "email": "neydosenac@gmail.com",
+      "telefone": "(11) 9999-1222",
+      "profissao": "dev",
+      "senha": "123",
+      "id": "7gSji_zYKHA"
+    },
+    {
+      "nome": "VITOR DE SOUSA SILVA",
+      "email": "kaua@gmail.com",
+      "telefone": "(11) 99991-1111",
+      "profissao": "dev",
+      "senha": "121212",
+      "id": "olhBvpYXWHI"
+    },
+    {
+      "nome": "VITOR DE SOUSA SILVA",
+      "email": "kaua@gmail.com",
+      "telefone": "(11) 99991-1111",
+      "profissao": "Vagabundo",
+      "senha": "sasa",
+      "id": "7eaqfXGeqmA"
+    },
+    {
+      "nome": "VITOR DE SOUSA SILVA",
+      "email": "kaua123@gmail.com",
+      "telefone": "(11) 99991-1111",
+      "profissao": "Vagabundo",
+      "senha": "2121",
+      "id": "fyL9VysvPQQ"
+    },
+    {
+      "nome": "ygtytyty",
+      "email": "444444444",
+      "telefone": "55555555555555",
+      "profissao": "8887878778",
+      "senha": "454545454",
+      "id": "p1UrurTkLS4"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Notebook",
+      "preco": 3500,
+      "estoque": 15,
+      "categoria": "Eletrônicos"
+    },
+    {
+      "id": "2",
+      "nome": "Mouse",
+      "preco": 50,
+      "estoque": 100,
+      "categoria": "Eletrônicos"
+    },
+    {
+      "id": "3",
+      "nome": "Teclado",
+      "preco": 150,
+      "estoque": 50,
+      "categoria": "Eletrônicos"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "titulo": "Introdução ao Angular",
+      "conteudo": "Angular é um framework poderoso...",
+      "autor": "João Silva",
+      "data": "2026-03-01"
+    },
+    {
+      "id": "2",
+      "titulo": "JSON Server na prática",
+      "conteudo": "JSON Server facilita o desenvolvimento...",
+      "autor": "Maria Santos",
+      "data": "2026-03-10"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

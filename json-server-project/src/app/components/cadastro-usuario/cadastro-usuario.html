@@ -1,0 +1,34 @@
+<nav class="navbar">
+    <div class="logo">TECHSNEAKERS</div>
+
+</nav>
+
+<main class="main-content">
+    <div class="cadastro-container">
+        <h2>Criar conta</h2>
+
+        <form (ngSubmit)="cadastrar()">
+            <div class="form-group">
+                <input type="text" name="nome" [(ngModel)]="usuario.nome" placeholder="Nome Completo">
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" [(ngModel)]="usuario.email" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="telefone" [(ngModel)]="usuario.telefone" placeholder="Telefone">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="profissao" [(ngModel)]="usuario.profissao" placeholder="Profissão">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="senha" [(ngModel)]="usuario.senha" placeholder="Senha">
+            </div>
+
+            <button type="submit" class="btn-cadastrar">CADASTRAR</button>
+        </form>
+    </div>
+</main>

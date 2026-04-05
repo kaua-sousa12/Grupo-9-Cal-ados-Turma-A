@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Usuario, Produto, Post } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private apiUrl = '/api';
+  private apiUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
   // Métodos para Usuários
   getUsuarios(): Observable<Usuario[]> {
@@ -23,11 +23,11 @@ export class ApiService {
     return this.http.delete<void>(`${this.apiUrl}/usuarios/${id}`);
   }
   // Métodos para Produtos
-getProdutos(): Observable<Produto[]> {
-return this.http.get<Produto[]>(`${this.apiUrl}/produtos`);
-}
-// Métodos para Posts
-getPosts(): Observable<Post[]> {
-return this.http.get<Post[]>(`${this.apiUrl}/posts`);
-}
+  getProdutos(): Observable<Produto[]> {
+    return this.http.get<Produto[]>(`${this.apiUrl}/produtos`);
+  }
+  // Métodos para Posts
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.apiUrl}/posts`);
+  }
 }
