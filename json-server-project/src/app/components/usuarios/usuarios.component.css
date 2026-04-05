@@ -1,0 +1,186 @@
+.box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #c9c9c9;
+  overflow-x: hidden;
+}
+
+
+.main-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 48px;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.main-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.main-menu a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+  transition: opacity 0.3s;
+}
+
+.main-menu a:hover {
+  opacity: 0.7;
+}
+
+.main-menu .cart {
+  font-weight: 500;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 60px 20px;
+  width: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-text {
+  font-size: 16px;
+  color: #292929;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 241px;
+  height: 45px;
+  background-color: #b3b3b3;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #3c3c3c;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #a0a0a0;
+  transform: translateY(-2px);
+}
+
+
+.highlights-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  position: relative;
+  margin-top: auto;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #3c3c3c;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+
+.background-gradients {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gradient-left,
+.gradient-right {
+  position: absolute;
+  bottom: 0;
+  width: 208px;
+  height: 100%;
+  min-height: 201px;
+  background: linear-gradient(270deg, rgba(201, 201, 201, 0.5) 0%, rgba(115, 115, 115, 0.8) 100%);
+}
+
+.gradient-left {
+  left: 0;
+}
+
+.gradient-right {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* fallback para fontes locais se necessário */
+@font-face {
+  font-family: "Dosis";
+  src: local("Dosis"), local("Arial");
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* @FONTWARNING[{"type": "restricted", "family": "Dosis-Regular", "weight": "400", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Dosis-Regular";
+  src: local("Dosis-Regular");
+}
+
+/* @FONTWARNING[{"type": "restricted", "family": "Dosis-Medium", "weight": "500", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Dosis-Medium";
+  src: local("Dosis-Medium");
+}
