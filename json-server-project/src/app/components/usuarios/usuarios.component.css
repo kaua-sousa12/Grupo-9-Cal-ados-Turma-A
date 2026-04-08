@@ -190,7 +190,6 @@ a {
   src: local("Dosis-Medium");
 }
 
-/* Container da Seção */
 .highlights-container {
   padding: 20px 48px 60px 48px;
   display: flex;
@@ -198,12 +197,9 @@ a {
   align-items: center;
 }
 
-/* Título já existente no seu código, apenas garantindo o espaçamento */
 .section-title {
   margin-bottom: 40px;
 }
-
-/* --- APENAS O GRID E OS CARDS --- */
 
 .product-grid {
     display: grid;
