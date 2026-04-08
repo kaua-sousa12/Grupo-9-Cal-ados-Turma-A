@@ -266,6 +266,10 @@ a {
   font-weight: 600;
 }
 
+.tenisForum{
+  margin-top: 30px;
+}
+
 /* Ajuste Responsivo para telas menores */
 @media (max-width: 1024px) {
   .product-grid {
