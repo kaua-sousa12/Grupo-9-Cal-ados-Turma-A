@@ -60,6 +60,7 @@
   flex: 1;
   padding: 60px 20px;
   width: 100%;
+  background-image: url(https://media.discordapp.net/attachments/1418384646932271216/1491589666598686971/3438_1920x504_full-desk_promo-ADS_CORRE.png?ex=69d83ea0&is=69d6ed20&hm=edcb6fdbf534d1044cbeb3796155e5f370bf6c6f43ed96d21e7fb1f2822cbc1b&=&format=webp&quality=lossless&width=1872&height=491);
 }
 
 .hero-content {
@@ -75,6 +76,18 @@
   color: #292929;
   font-weight: 500;
   margin-bottom: 25px;
+  background-color: #b3b3b3;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #3c3c3c;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 350px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-button {
