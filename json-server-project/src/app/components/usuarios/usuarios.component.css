@@ -61,6 +61,8 @@
   padding: 60px 20px;
   width: 100%;
   background-image: url(https://media.discordapp.net/attachments/1418384646932271216/1491589666598686971/3438_1920x504_full-desk_promo-ADS_CORRE.png?ex=69d83ea0&is=69d6ed20&hm=edcb6fdbf534d1044cbeb3796155e5f370bf6c6f43ed96d21e7fb1f2822cbc1b&=&format=webp&quality=lossless&width=1872&height=491);
+  background-size: cover;   
+  background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -189,14 +191,12 @@ a {
   text-decoration: none;
 }
 
-/* @FONTWARNING[{"type": "restricted", "family": "Dosis-Regular", "weight": "400", "style": "normal", "allowsCrossOrigin": false}] */
 
 @font-face {
   font-family: "Dosis-Regular";
   src: local("Dosis-Regular");
 }
 
-/* @FONTWARNING[{"type": "restricted", "family": "Dosis-Medium", "weight": "500", "style": "normal", "allowsCrossOrigin": false}] */
 
 @font-face {
   font-family: "Dosis-Medium";
