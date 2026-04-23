@@ -9,8 +9,14 @@
   overflow: hidden;
 }
 
-.main-container {
-      display: flex;
+/* Configuração Global */
+:host {
+    display: block;
+    height: 100vh;
+}
+
+.principal {
+    display: flex;
     height: 100vh;
     /* Overlay escuro ajuda a destacar os cards de vidro */
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -19,6 +25,7 @@
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+/* Sidebar */
 .sidebar {
     width: 260px;
     background: rgba(0, 0, 0, 0.85);
@@ -99,129 +106,156 @@
     text-decoration: none;
     font-weight: 600;
 }
-.content {
+
+.conteudo {
   flex: 1;
   padding: 40px;
   overflow-y: auto;
 }
 
-.top-bar h1 {
-    font-size: 32px;
+.cabecalho-principal {
   margin-bottom: 40px;
-
 }
 
-.stats-grid {
+.cabecalho-principal h1 {
+  font-size: 32px;
+}
+
+.grade-dashboard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 30px;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.stat-card p {
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 5px;
-}
-
-.stat-card h3 {
-  font-size: 24px;
-}
-
-.main-card {
+.cartao {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
-  padding: 30px;
-  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.main-card h2 {
+  padding: 25px;
+  border-radius: 15px;
   margin-bottom: 25px;
-  font-weight: 500;
 }
 
-.vendas-container {
+.cartao h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+/* Ajuste do formulÃ¡rio para os novos campos */
+.formulario-grid {
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.table-section {
-  flex: 2;
+.formulario-grid input {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  flex: 1;
+  min-width: 120px;
+}
+.coluna-pedidos h3{
+  margin-bottom: 10px;
 }
 
-table {
+.input-full {
+  flex-basis: 100% !important;
+}
+
+.botao-primario {
+  background: #46a3a3;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tabela-dados {
   width: 100%;
   border-collapse: collapse;
 }
 
-th {
+.tabela-dados th {
   text-align: left;
-  padding: 12px;
-  color: #aaa;
+  padding: 10px;
+  color: #ccc;
   font-size: 13px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-td {
-  padding: 15px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.tabela-dados td {
+  padding: 15px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 14px;
 }
 
-.chart-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.etiqueta {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
 }
 
-.donut-chart {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: conic-gradient(
-      #a3b18a 0% 35%, 
-      #588157 35% 65%, 
-      #3a5a40 65% 85%, 
-      #dad7cd 85% 100%
-  );
-  position: relative;
+.sucesso { background: #00d1b2; }
+.perigo { background: #ff3860; }
+
+.botao-contorno {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cartao-pedido {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
   margin-bottom: 20px;
+  border-left: 5px solid #4db6ac;
 }
 
-.donut-chart::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90px;
-  height: 90px;
-  background: rgba(40, 40, 40, 0.9);
-  border-radius: 50%;
+.atendido {
+  border-left-color: #4CAF50;
+  opacity: 0.7;
 }
 
-.legend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  font-size: 12px;
+.pedido-info {
+  font-size: 14px;
+  color: #ddd;
+  margin: 5px 0;
 }
 
-.legend-item {
+.check-atendido {
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.botao-atender {
+  background: #4db6ac;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.perfil-box {
+  margin-top: auto;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
 }
-
-.dot { width: 10px; height: 10px; border-radius: 50%; }

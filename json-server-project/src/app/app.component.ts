@@ -5,7 +5,6 @@ import { PostsComponent } from './components/posts/posts.component';
 import { CadastroUsuario } from './components/cadastro-usuario/cadastro-usuario';
 import { FormsModule } from '@angular/forms';
 import { GestaoMarcas } from "./components/gestao-marcas/gestao-marcas";
-import { VendasPorMarca } from "./components/vendas-por-marca/vendas-por-marca";
 import { RouterOutlet } from '@angular/router';
 
 @Component({

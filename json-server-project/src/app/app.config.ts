@@ -5,18 +5,18 @@ import { provideRouter, Routes } from '@angular/router';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { CadastroUsuario } from './components/cadastro-usuario/cadastro-usuario';
 import { GestaoMarcas } from './components/gestao-marcas/gestao-marcas';
-import { VendasPorMarca } from './components/vendas-por-marca/vendas-por-marca';
 import { Historico } from './components/historico/historico';
 import { Login } from './components/login/login';
+import { Estoque } from './components/estoque/estoque';
 
 const routes: Routes = [
   { path: '', component: UsuariosComponent },
   { path: 'cadastro', component: CadastroUsuario },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'gestaomarcas', component: GestaoMarcas },
-  { path: 'vendaspormarca', component: VendasPorMarca },
   { path: 'historico', component: Historico },
   { path: 'login', component: Login },
+  { path: 'estoque', component: Estoque },
 ];
 
 export const appConfig: ApplicationConfig = {
