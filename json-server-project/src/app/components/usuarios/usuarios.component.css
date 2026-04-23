@@ -60,8 +60,8 @@
   flex: 1;
   padding: 60px 20px;
   width: 100%;
-background-image: url('../../../../public/assets/images/corre5.webp');
-  background-size: cover;   
+  background-image: url("assets/images/upscalemedia-transformed.webp");
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -217,37 +217,37 @@ a {
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .product-card {
-    background-color: #f2f2f2;
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    min-height: 420px; 
-    transition: transform 0.2s;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  transition: transform 0.2s;
 }
 
 .product-image {
-    flex: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
 
 .product-image img {
-    max-width: 100%;
-    height: 180px; 
-    object-fit: contain;
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
 }
 
 .card-header {
@@ -281,7 +281,7 @@ a {
   font-weight: 600;
 }
 
-.tenisForum{
+.tenisForum {
   margin-top: 30px;
 }
 
@@ -297,6 +297,7 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
 .product-image img {
   max-width: 100%;
   height: 200px;
@@ -304,44 +305,44 @@ a {
 }
 
 .main-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 48px;
-    margin-top: auto; 
-    background-color: #000;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 48px;
+  margin-top: auto;
+  background-color: #000;
 }
 
 .copyright {
-    font-size: 18px;
-    color: #fff;
-    font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
 }
 
 .footer-menu {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .footer-menu a {
-    text-decoration: none;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 400;
-    transition: opacity 0.3s;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+  transition: opacity 0.3s;
 }
 
 .footer-menu a:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 /* Ajuste para telas pequenas */
 @media (max-width: 600px) {
-    .main-footer {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        padding: 30px 20px;
-    }
+  .main-footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 30px 20px;
+  }
 }
