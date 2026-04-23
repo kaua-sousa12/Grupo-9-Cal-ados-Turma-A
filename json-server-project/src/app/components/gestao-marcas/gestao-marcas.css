@@ -61,13 +61,15 @@
 }
 
 .perfil {
-    padding: 25px 30px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 50px;
-    background: #6D6D6D;
     gap: 20px;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.08); 
+    border-radius: 12px;
+    margin-bottom: 50px;
+    margin-left: 15px; 
+    margin-right: 15px;
 }
 
 .avatar {
@@ -83,8 +85,21 @@
 .perfil-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; 
 }
+
+.perfil-greeting {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 400; 
+}
+
+.perfil-link {
+    font-size: 0.9rem;
+    color: #D9D9D9;
+    text-decoration: none;
+}
+
 
 .role {
     font-size: 0.8rem;
