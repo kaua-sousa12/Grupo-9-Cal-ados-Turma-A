@@ -60,7 +60,7 @@
   flex: 1;
   padding: 60px 20px;
   width: 100%;
-  background-image: url("assets/images/upscalemedia-transformed.webp");
+  background-image: url("/assets/images/upscalemedia-transformed.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }
