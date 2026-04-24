@@ -7,22 +7,6 @@
       "telefone": "(11) 98765-4321",
       "profissao": "Desenvolvedor",
       "senha": "1234"
-    },
-    {
-      "nome": "Gabriel Vinicius",
-      "email": "testando@hotmail.com",
-      "telefone": "116671137",
-      "profissao": "Almoxarife",
-      "senha": "1234",
-      "id": "xh40WwJO8gY"
-    },
-    {
-      "nome": "Gabriel Vinicius",
-      "email": "testandoh@hotmail.com",
-      "telefone": "131313",
-      "profissao": "Almoxarife",
-      "senha": "12345",
-      "id": "SPQQKWNADkE"
     }
   ],
   "produtos": [

@@ -1,7 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, Routes } from '@angular/router';
-
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { CadastroUsuario } from './components/cadastro-usuario/cadastro-usuario';
 import { GestaoMarcas } from './components/gestao-marcas/gestao-marcas';

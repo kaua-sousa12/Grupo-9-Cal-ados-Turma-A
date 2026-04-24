@@ -159,6 +159,11 @@
   flex: 1;
   min-width: 120px;
 }
+
+.formulario-grid input::placeholder {
+  color: white; /* Branco com 50% de transparência */
+  opacity: 10; /* Garante que o Firefox não aplique opacidade própria */
+}
 .coluna-pedidos h3{
   margin-bottom: 10px;
 }
