@@ -37,11 +37,11 @@ export class Estoque implements OnInit {
 
   alterarEstoque(produto: Produto, delta: number) {
     const novoEstoque = produto.estoque + delta;
-    if (novoEstoque < 0) return; // não deixa ficar negativo
+    if (novoEstoque < 0) return; 
 
     this.http.patch<Produto>(`${this.apiUrl}/${produto.id}`, { estoque: novoEstoque })
       .subscribe(() => {
-        produto.estoque = novoEstoque; // atualiza o front só após confirmação
+        produto.estoque = novoEstoque; 
       });
   }
 
