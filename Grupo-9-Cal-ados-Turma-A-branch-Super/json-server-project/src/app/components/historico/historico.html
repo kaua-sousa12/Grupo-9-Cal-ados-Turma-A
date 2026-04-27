@@ -1,0 +1,74 @@
+<div class="main-container">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <h2>TECHSNEAKERS</h2>
+
+      <div class="perfil">
+        <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="Avatar">
+        <div class="perfil-info">
+          <a href="" class="perfil-link">Perfil</a>
+          <span class="perfil-greeting">Olá, Admin</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li routerLink="/gestaomarcas">Resumo</li>
+          <li routerLink="/historico" class="active">Histórico</li>
+          <li routerLink="/estoque">Estoque</li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="content">
+    <header class="top-bar">
+      <h1>Painel de Controle</h1>
+      <button class="btn-sair">Sair</button>
+    </header>
+
+    <main class="card-painel">
+      <div class="card-header">
+        <h2>Histórico de Vendas</h2>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Produto</th>
+              <th>Marca</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>03/04/2026</td>
+              <td class="product-name">Tênis Air Max</td>
+              <td><span class="brand-tag">Nike</span></td>
+              <td class="price">R$ 450,00</td>
+            </tr>
+            <tr>
+              <td>03/04/2026</td>
+              <td class="product-name">Camisa Treino</td>
+              <td><span class="brand-tag">Adidas</span></td>
+              <td class="price">R$ 120,00</td>
+            </tr>
+            <tr>
+              <td>02/04/2026</td>
+              <td class="product-name">Meias Pack</td>
+              <td><span class="brand-tag">Puma</span></td>
+              <td class="price">R$ 45,00</td>
+            </tr>
+            <tr>
+              <td>02/04/2026</td>
+              <td class="product-name">Chuteira Campo</td>
+              <td><span class="brand-tag">Reebok</span></td>
+              <td class="price">R$ 380,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

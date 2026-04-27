@@ -1,0 +1,97 @@
+<div class="principal">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <h2>TECHSNEAKERS</h2>
+
+      <div class="perfil">
+        <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="Avatar">
+        <div class="perfil-info">
+          <a href="" class="perfil-link">Perfil</a>
+          <span class="perfil-greeting">Olá, Admin</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li routerLink="/gestaomarcas">Resumo</li>
+          <li routerLink="/historico">Histórico</li>
+          <li routerLink="/estoque" class="active">Estoque</li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="conteudo">
+    <header class="cabecalho-principal">
+      <h1>Painel de Controle</h1>
+    </header>
+
+    <div class="grade-dashboard">
+      <section class="coluna-inventario">
+        <div class="cartao">
+          <h3>Novo produto</h3>
+          <div class="formulario-grid">
+            <input type="text" placeholder="Nome do produto" class="input-full">
+            <input type="text" placeholder="Categoria">
+            <input type="number" placeholder="Qtd" style="max-width: 80px;">
+            <input type="text" placeholder="Preço (R$)">
+            <button class="botao-primario">Cadastrar</button>
+          </div>
+        </div>
+
+        <div class="cartao">
+          <h3>Inventário Atual</h3>
+          <table class="tabela-dados">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Qtd</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let produto of produtos">
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.categoria }}</td>
+                <td>R$ {{ produto.preco | number:'1.2-2' }}</td>
+                <td>{{ produto.estoque }}</td>
+                <td>
+                  <span class="etiqueta" [ngClass]="getStatus(produto) === 'Em dia' ? 'sucesso' : 'perigo'">
+                    {{ getStatus(produto) }}
+                  </span>
+                </td>
+                <td>
+                  <div class="controle-estoque">
+                    <button class="botao-qtd" (click)="alterarEstoque(produto, -1)">−</button>
+                    <button class="botao-qtd" (click)="alterarEstoque(produto, +1)">+</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="coluna-pedidos">
+        <h3>Fila de Pedidos</h3>
+
+        <div class="cartao-pedido">
+          <strong>#1024</strong>
+          <p class="pedido-info">Cliente: Gabriel do Senac</p>
+          <p class="pedido-info">Item: 1x Nike Air Force</p>
+          <button class="botao-atender">Atender pedido</button>
+        </div>
+
+        <div class="cartao-pedido atendido">
+          <strong>#1010</strong>
+          <p class="pedido-info">Cliente: Ney do Senac</p>
+          <p class="pedido-info">Item: 1x Puma Bmw</p>
+          <p class="check-atendido">✓ Atendido</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
