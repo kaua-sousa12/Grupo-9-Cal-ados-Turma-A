@@ -96,6 +96,7 @@ http://localhost:4200
 - Gabriel Souza
 - Gabriel Vinicius
 - Kauan
+- João Pedro Gama
 ---
 
 # Observações
