@@ -1,0 +1,63 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "telefone": "(11) 98765-4321",
+      "profissao": "Desenvolvedor",
+      "senha": "1234"
+    },
+    {
+      "nome": "Gabriel Vinicius",
+      "email": "testando@hotmail.com",
+      "telefone": "116671137",
+      "profissao": "Almoxarife",
+      "senha": "1234",
+      "id": "xh40WwJO8gY"
+    },
+    {
+      "nome": "Gabriel Vinicius",
+      "email": "testandoh@hotmail.com",
+      "telefone": "131313",
+      "profissao": "Almoxarife",
+      "senha": "12345",
+      "id": "SPQQKWNADkE"
+    },
+    {
+      "nome": "EDUARDO DOS SANTOS MENDONCA SILVA",
+      "email": "dudu.esms27@gmail.com",
+      "telefone": "11992005736",
+      "profissao": "Programador",
+      "senha": "1234",
+      "id": "gCshx2P"
+    }
+  ],
+  "produtos": [
+    {
+      "nome": "Nike Air Max 90",
+      "categoria": "sapato",
+      "preco": 800,
+      "quantidade": 3,
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "titulo": "Introdução ao Angular",
+      "conteudo": "Angular é um framework poderoso...",
+      "autor": "João Silva",
+      "data": "2026-03-01"
+    },
+    {
+      "id": "2",
+      "titulo": "JSON Server na prática",
+      "conteudo": "JSON Server facilita o desenvolvimento...",
+      "autor": "Maria Santos",
+      "data": "2026-03-10"
+    }
+  ],
+  "carrinho": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,466 @@
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #111111;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray-mid: #e0e0e0;
+  --font-main: 'Arial Black', 'Helvetica Neue', sans-serif;
+  --font-body: 'Arial', sans-serif;
+}
+
+.box {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--black);
+}
+
+/* HEADER */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-mid);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+.main-menu { display: flex; gap: 32px; align-items: center; }
+.main-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+}
+.main-menu a:hover { opacity: 0.5; }
+.main-menu .cart {
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 18px;
+  border-radius: 2px;
+}
+
+/* HERO */
+.hero-section {
+  position: relative;
+  height: 420px;
+  background: var(--black) url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxANDQ8ODhIQDQ0NDg8ODQ0ODw8NDQ0PFRYWFhYRFxUYHSggGBonGxYVITEhJykrLi4uFyAzODMvNygtLisBCgoKDg0OGxAQFy0dHyIyLS03Ky0tNy0rKystLS0tLS0vLTAtNystLS0tLS0tLS4tLTctLS0tLS0tLS0tLS0tN//AABEIAKIBNgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAAAwEEBQYHAv/EAEEQAAEEAQIDBQQIBAUCBwAAAAEAAgMSEQQhBTFBBhNRYXEigZGhBxQyQmKCscEjUtHwFVOSouFDciUzNGOywtP/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIDBAX/xAAsEQEBAAICAQIDBgcAAAAAAAAAAQIRAyExEkEEYaEFE3GRsdEyQlGB4fDx/9oADAMBAAIRAxEAPwD5jVKq9EopEKpVXolEEKpVXolEEKrFFsUWKIIUSivRKIIUWaK1EoghRKK9EoghRKK9EoghRKK9EogjRKK1F+4dOZHsjbu+RzWNHi5xAHzKDWMZrbBqHBpd90OOSBnx2PwWAw4DsODXZq4tIa/HOp5HHkvrXDeAaaXTuhlx9TiJjY37PfSjFpSehPj7uQXaj7BaJ+idomd62GYiWJ1y9+mnrm7CeWQcEciBus5mv6HwyqVXS47wafhuqdpNUBbBdBM0Yi1Mf8zfA+I6LTqtFEKJRXolEEKJRXqlUEKJRXqlUEKJVXolEEqpVWos1QQqlVeixRBGqVVqJVBCiyrVRQLVSivVZqpEKJRXqlUEKpVXqlUEKLFFsVWKoIUSivVKoIUSivVKoIUSivVKoIUSivVKoIUSivVKoIUXT7NRZ1sJ6R3lJ6CjHOHzA+K06r13YjhBdeV4w17ag/8AstIL3e9wa0fmVcrqLYzt3NRL3emgj6hl3DrZ/tH9VudkuNOZO3TuNopThhPON4y5o9Ccj8y4fF9VeV2OX7LnR6gxPbI3ZzHNe31ac/svK5viZhn01fVe0fAtPxGJ0OpYHDIfE8bSQv6PY7oc+48jkL4fxns7PpJpoyx0jYMF0rGkt7s/Zef5QfhnZfe5ZbBjxyczI+Of3XjO38j9K7T6+HZ8TzDJ4PjduGu8sgj8y9LHLSlj5FVKr7Fp+C8P4pC2QwsaXta8PhHcvw7r7PMjPI5+S+e9q+zzuHaju8l8TxaGQjBcORafxD9weq0lU08/VKq9UqpQhVKq9UqghVKq9UqgjVKq9UqghRKq9UqghVKq9Uog16otiiwgvVKq9EoghVKq9UqghVKq9UqghVYqtiqVQa9UqtiqVQa9UqtiqVQa9UqtiqVQa9UqtiqVQa9V2JuzsrOGxcRzmKWV8ZYBuxoJaHk+BcHD4eK57YySA0EuJAaAMkk8gF9v1HB2jhun0T2gMZFAyZuxAqA5x8zZvzUZZaiZNvkPAeBu1Dmvc1z2E+xG3NpjnHMfZYDzd7h1I93xPTSaPS4DDh1RJK0AMGBhrAB9lo5AbLrxiuGxju4xgBrBgADYeuy6QrIwtcLBwLSw7hzeRC5+S2777aSafKJnYGTzK09NppNVK2GEXkkOAOg8z4AL1EvZHUyTSNAEcLXua2aU4DmZ2IA3O2Oi7kEek4DpHTSOLnu2dNUCSV+MiONvQbHr0yTsvJ4fheTPLec0va9C6OgZGN+7Y1mfE9V5H6Sj/wCFS+N4Met2/wDK7vAeMN1+ij1bR3feB4LCbFjmuLSMgb8vmvE/S1xEM08WnB9qR/eOH4GAgZ97v9q9jGdqXwn9G+vP1drc7tEuD6SD/wDQrtdsYPrmiftmSD+Ow9cD7Q/0k+8Bec+j6AthjB5nTGQ+QmkLm/7Qz4r2nD3h2S7cSv7tm2QQ3d3u6e5W32q+QVSq6fF9D9X1M0PSORwb/wBnNvyIWnVaqIVSq2KpVSNeqVWxVYqgjVKrYqlVAhVYqtiqVQa9Uqr1SqCFUWxVYQXqlVaqVUiNUqrVWaoIVSqtVKII1WKq9EqghVKq9UqghVKq9UqghVKq9EqghVKq9Uog7XYXhvf65kjt2aWuocMF1iHANHluQfylfVtTqMtJ55XzvsHDJHMyaxZHPI7T7ZJcWt7x23XkB5WPgvYcZ1DmuDWjPtEu3DWhoB5nG2+F4n2ply/eYTj5PR7fnZN/Vtx613E2vNsbEkHGc4B8f0W/GSMDJ65J2c7xPz+a8/pXSzPc7NAzAxd7gfc0tGN11a7sJAsxpa12BkA4yM88HAXV8Nx58fFMeTL1ZT3Ta+e8W+kbUxa58Ijiig0+qdFLZr3yPja+rjbIwcAnYbea7v0rRh/C+8/ytRC8Hydln/3C8L9KnDjDxAzAYi1jA/PTvG4a8f8AxP5l6TS69vG+A/VO/hi1cX1dk/fuDcCJ7T3pHUFrM55ZyNl1f0qnybf0V60f4XKHEBkOqksTs1raMeSfLmV8+49rX8a4pVhLWSv7th/ytOzJLz4ezZ3vwtntDxuDTaX/AAzhzi7StNtXq+R1kpxnHhHsPXA6fa3OxvAnYLSCNRqmgTkjfTaXY935PfgZ8AAPFT47R8nruBQnuHPjGHayQNgafuwtFWe6oyvSviEXcRtGWtqA7B2Nhk5xzOSfivzwnTguLwMMhaIox0Bxvj0GB+ZV1L7TRt6B1j7gSqpeC7dQgcQeR9+OJx9cY/YLz9V6LtnIJNfJj/ptjjPqG5PzK4lVtjdyVSoVSqvRKqyEKpVXqlUEaJVXqlUEKpVXqlUEKJRXqsVQRqivVEFapVXolUQhVZqrVSqCFFmqtRKoI1WKq9EqgjVKK1EqgjVKq1UogjVKK1EogjVYqr0X7ihL3NaObnBo9ScIPediYpIoXxSEARnIid9pr3e3kHlXBYfUlOJ8QAlc3D3VYC4sZYDJOxJIA5Lrtm/gMkeWCR7RuPZzk4Ax57fFee1fEY25tbO+T3U2B7y0Lx+fh5OT4nHKyXCfPv39tfP6OiakV4W+RhEgBDHb1LmtJO43a1uB8SunoQatDiXVADnHdzsdT5lcvR6uR0batAaS2rnRkCgItj+ITnFgPRX4hxaHRxGXUPbGzpnJc4jerWjdx8gu2oQ7XcBZxPTOgee7eHB8MoFu6l36dW4OD5HxXxLjvZ/UaCUR6lgBdl0b2kPjlAwC5p59RscEe9fUovpI0T5RGGagXcGskMTC1znHA2Di7fPgvJfStxTv9azTM9oaSOmBzM0mC5vwEY9cq+G5dK5arX7M9mXSdzO7D5Jsv00PMMaDjv5PePZHvX1HhvD26SIsYLPd9t53c9xXP7FaIMhc7n3bY9NGfwxtDfmQT+Zep4dDeWx+zELnzd939z7lN7PCnciCMR9WjLj4vO5/p7lx9Tq2wMk1L9wwVjb/ADyHkF1Na/OSSABlznHYNaNySvAce4kdTIA3IgjyImnYnxefM/oqWXK+mf8AJ/vj/CLdRx5SXuc9xy57i5x8STklfmitRKrpkkZo0SitVKKRGixRXolEEapVWqlUEapVWqlUEarFVeqVQRqitREF6pRWqs1QQolFeiVQQolFeqVQQolFeqUQQqlFeqVQQqlVeqVQQqlFeiVQQqur2awzUiRwsyNkhcBnJDmlgA8SS8DHmtGi9T2T0ze5c4msrpcxuxklsQa4jzFnN/vKrldROPl3pmtha2No/hsGGtaC4t8vP157lcTXloac2A9C0HpydhOK68TwvkF3BsjYo8l1JMvDSQAdxnyXObpo2Oy/ugDnBe5gyfU8/wC/Vc/u2OI9o4NHpu9kzgN9hoMftv2rGKuO5yT6NJ5c/knEOIaniWpBcHSzSGkMTN2tHOjB0HUnyyVft3xOSfXuje0xQ6bLYo3YGR1l8N/kB6r2nYvhcXC9I7X60tiklaMOfnMMJ3DAOd3HmBvyHTfT+GbU81ztH2bHBm/4lrnxyPgGYNIwEh2pI9gF5543Ow2552Xj9DMZtbC+U2km1HeOcdry5Lx8X4GPNbfa/tLJxPUAgObBH7Onh5nfa5A5vO3pyHXO52Y7Pzs4tBDqGd2+KL6zUlrvtewzlsDZw2/CpnzR+D7FwTTd1pY2D+XP9PlhdzRtpBnrJ7XmQdm/IfNaDGZwxu1i2MeQ5Z+G/uUO2PE+5jEEez5QckfciG3xO49xUSbTa4PafiwkJgiOYwf4rx/1HD7o/CPmfRedqr0SivjhMZ0pbtCqVV6JRXQhVKq9EoghVKq9EoghRKK9EoghRKK9EoghRKK9EogjRYWxRYQWqlVaiUQRqlVaiUQRqs1VaJRBGqzRVos1QRolFaqVQRolFaqVQRolFaqVQRLV7iXhrY9L3cbu7e6Duru+4XZLiPMuOfcPBcbsvwzv5w94/hQEPdnk533W/ufIea9RrZRuMfv5/p+qy5L7L4R5PiGnIZFGxxDWSROFGZDWsI2HMch1XlPpB4hNp9I0QvndJI/2tRG99IYxgm1fZa4kAb+a9prYQSXYxnmW5a4fBfHuKdstWZZxE9p08heyMPjbI8RHbZ3PcePiq49rV+exXD/reqfqtW5z9Po29/qJJXF9iMlrSTz5E/l81pcf45NxLUl5u5rnkabTgF1GnYNDRzcRz6r6V2e7Kxs4WNHOHAzgS6mji15fs6oI8AGjzx5rucI7P6XQjOnibG/kZDl8rvK7snHocKLySU9NeO7FdjjpnN1mtbiVvtQQc+6P87/xeA6evL1XA9KJNZLrDuXsbE3yZEXn5ukH+hW4pMcUbu95DGjqc7Ae/IXT4Xpwxoa3cDDAf5g3m73uLj8FGNt7qbqdOpw9lpQekbS78x9kfK3wXkO0MneayY8w11B5Box+ufivaaAhkb5DyJcc/gZt+tj714KQlznOPNxLj6k5W2EZ5NeiUVqpVXVRolFaqVUiNEorVSqCNEorVSqCNUqq0SqgRqs1VarNUEKrNVWqUQSqitVEFqLNFaiVUiNEqrUSqCNUqrUSqCNFmqrVZogjVKq1UogjVKq1EqgjVU0uldK9sbBlzzgD9z5L9VXq+A6AaeMyPwJZB1+43o3yPIquV1EybbUGnbpoWws3ru53VzjzP6beHoufqZM+fzzn9j+ivq5/Xr6+HPx6fFc2R+T57/HqfcuXLLbaR57tzxI6Xh+okBxI9vcsPUOkNc+4En3L5V2M0H1viMDCMxsd30g/DHuB/qqPevX/AEu6vDNLpxyc6SZwH4QGtH+93wU/oj0P/qtSRk5ZA3xH33DPvZ8FedYbVvdfRmDA6fLGfDfz/RYmlDQc9Pmv041HPl13GT1XG1crpXiJnN25POjeRd5+AHUrKY7X2tw6J00xePuktjP4se0/8oPxIXoXMEbQ1uxdiNnkTtn3Df3Jw7RiCMDGDgDHOrfDPjnJJ8SvzC/vJDJ9yPLI/N33ne7l8Vt4UV4tMGaV7W7CohYPI7fpleRou1xucueIx9mPmPF5/py+K5lVrh4Z1CiUV6pVXQhRKK9EqghRKK9UoghRKq9EqghRKK1UqgjRKK1UqgjVKq1UqoEaIrhqKRaqUV6JRBCixRbFUog16LNFeiUQQos0VqrNEEKJRXolEEKJRXolEFuE6USS5O7Yxd3gcch8f0K72rnwOfqf7/vK0uCgCKY9SWD3e0teecZ3OFhybvhpiSvLj4f3/Rfjp136nPRTdOwddlry65o2Cw9NX2+afS2/GrgJ+ydN7Prd2f1C6X0W8SB0c0YHts1BcR+FzW4Pxafgv19IfA5Nfp2zQtL5NKXEgc3ROxf1xgH3Fcr6NeH6iHUOdAwTNcyk1jWCP+VxcObhvsOhPLmt53jpT3fRJ5S1oL8uc84iiH25XeA8vE9F1eC8N7gGWXBnfgkD7LPBo9B+/iVLSaZsLjI897O4YdKRgNH8rB91q2w2STxY09ce0fQfufmqppq9QXnuo/tO+07pG3q4/sP+VmZ7dOwBvMNxG3OT/wBx/XzWXvZpxVoBf4c9/Fx6lct+XEk7k7knmSmMnJOvH6/h+/5It013DJJO5JyT1JSivRKLoZoUSivRKKRCiUV6JRBCiUV6JRBCiUV6JRBr0SivRKIIUWKLYolEEKJVXqlEEAxFsVWEFqpVXolE0IVSqvRKpoQqlVeiUTQjVZqq0WaJoRqlVaqVQRqlVaqVQfmM4Bb49emVyuIskbkjcA745kenj6Lr1Qszz3XkfE/Zud5vv+DP05XzL4rTHPrVeeaGkAumjaPAyNz8MrZ0zIx/5bZNS7xa0sjHq9+B8MrpfU2gkt/huPMt6+oOytGCOeHeoP8AVdM+9/mwu/lZZ+sv0T6o1m6Z8gxI4Rs/yNOSM+TpObvdgLd0ugqwNja2GNvINAa0D0X7bORyDW+YH9cqb3udzJPhnfHp4LSTkvjHX439to9UbLRDFuTd3PIwfgeXvGVrza1ztm+w3y3cfUqdUqtceLrWff8AbpW5I1WKq9UqtdKo1SqtVKII1SqtRKoI1SqtRKoI1SqtRKoI1WKq9UqghVYqr1SiaEKpVXolE0IVSqvRKJoRqitRE0KIiKRlYREGUREBZREBERAREQEREBERAREQEWEQZREQEREBFhEGUREBERARYRAREQYREUjKLCKBkIiIP//Z') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.3));
+  z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; padding: 0 60px; }
+.hero-tag {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-family: var(--font-main);
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+}
+.hero-text { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
+.cta-button {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  padding: 12px 28px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.cta-button:hover { background: var(--gray-mid); }
+
+/* URBAN BANNER */
+.urban-banner {
+  background: #1a1a1a url('https://cdn.discordapp.com/attachments/1433586859472322674/1498088521662201936/image.png?ex=69efe328&is=69ee91a8&hm=f5c9219383f03c529202116cbc34477a9b05c835d9c1fad03c52877636b484c1&') center center / cover no-repeat;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+justify-content: center;
+text-align: center;
+}
+.urban-content { color: var(--white); }
+.urban-tag { font-size: 0.7rem; letter-spacing: 3px; opacity: 0.6; margin-bottom: 6px; text-transform: uppercase; color: #ffffff;}
+.urban-title { font-family: var(--font-main); font-size: 3rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 4px; color: #FFFFFF !important;}
+.urban-sub { font-size: 0.8rem; letter-spacing: 3px; opacity: 0.7; margin-bottom: 20px; color: #ffffff;}
+.urban-btn {
+  display: inline-block;
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.urban-btn:hover { background: var(--white); color: var(--black); }
+
+/* SECTION TITLE */
+.section-title {
+  font-family: var(--font-main);
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+/* HIGHLIGHTS */
+.highlights-container { padding: 50px 40px; background: var(--white); }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: var(--gray-light);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.card-badges { position: absolute; top: 10px; left: 10px; z-index: 2; }
+.badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--white);
+}
+.card-header { padding: 14px 14px 0; height: 40px; display: flex; align-items: center; }
+.brand-logo { height: 22px; object-fit: contain; }
+.product-image {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+}
+.product-image img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s; }
+.product-card:hover .product-image img { transform: scale(1.05); }
+.product-details { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.product-details .name { font-size: 0.85rem; font-weight: 700; }
+.product-details .price { font-size: 0.95rem; font-weight: 800; }
+.card-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.frete { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; color: #2e7d32; text-transform: uppercase; }
+.add-btn {
+  width: 28px;
+  height: 28px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  margin-left: auto;
+}
+.add-btn:hover { background: #333; }
+
+/* NOVIDADES */
+.novidades-section { padding: 40px 40px; background: var(--white); border-top: 1px solid var(--gray-mid); }
+.novidades-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.nav-arrows { display: flex; gap: 8px; }
+.arrow {
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border: 1px solid var(--gray-mid);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.arrow:hover { background: var(--black); color: var(--white); }
+.novidades-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* NEWSLETTER */
+.newsletter-section {
+  border-top: 1px solid var(--gray-mid);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.newsletter-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 1px; }
+.newsletter-form { display: flex; }
+.newsletter-input {
+  padding: 10px 20px;
+  border: 1px solid var(--gray-mid);
+  font-size: 0.85rem;
+  width: 280px;
+  outline: none;
+}
+.newsletter-btn {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+}
+.newsletter-btn:hover { background: #333; }
+
+/* FOOTER */
+.main-footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.copyright { font-size: 0.8rem; opacity: 0.7; }
+.footer-menu { display: flex; gap: 24px; }
+.footer-menu a { color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 600; opacity: 0.8; transition: opacity 0.2s; }
+.footer-menu a:hover { opacity: 1; }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .main-header { padding: 14px 20px; flex-direction: column; gap: 12px; }
+  .hero-title { font-size: 3.5rem; }
+  .hero-content { padding: 0 24px; }
+  .highlights-container, .novidades-section { padding: 30px 20px; }
+  .novidades-grid { grid-template-columns: repeat(2, 1fr); }
+  .newsletter-section { flex-direction: column; text-align: center; }
+  .newsletter-input { width: 220px; }
+  .main-footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
+}
+</style>
+
+<div class="box">
+  <!-- HEADER -->
+  <header class="main-header">
+    <h1 class="logo">TECHSNEAKERS</h1>
+    <nav class="main-menu">
+      <a routerLink="/login">Login</a>
+      <a href="#">Masculino</a>
+      <a href="#">Feminino</a>
+      <a href="#" class="cart">Carrinho(0)</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">NOVA COLEÇÃO</p>
+      <h2 class="hero-title">CORE 5</h2>
+      <p class="hero-text">O melhor momento para começar é agora</p>
+      <a href="#destaques" class="cta-button">EXPLORAR COLEÇÃO</a>
+    </div>
+  </main>
+
+  <!-- URBAN BANNER -->
+  <section class="urban-banner">
+    <div class="urban-content">
+      <p class="urban-tag">TECHSNEAKERS — TOP URBAN UNIFORM</p>
+      <h3 class="urban-title">URBAN EXPLORE</h3>
+      <p class="urban-sub">DESCUBRA A COLEÇÃO</p>
+      <a href="#" class="urban-btn">COMPRE AGORA</a>
+    </div>
+  </section>
+
+  <!-- DESTAQUES DA SEMANA -->
+  <section class="highlights-container" id="destaques">
+    <h2 class="section-title">Destaques da Semana</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="card-badges"><span class="badge">NOVO</span></div>
+        <div class="card-header"><img src="assets/images/nike-logo.svg" alt="Nike" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/nike-dunk.webp" alt="Nike Dunk"></div>
+        <div class="product-details">
+          <p class="name">Nike Dunk</p><p class="price">R$ 699,90</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/Puma-Logo.png" alt="Puma" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/puma rs.webp" alt="Puma RS-X"></div>
+        <div class="product-details">
+          <p class="name">Puma RS-X</p><p class="price">R$ 599,90</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/Puma-Logo.png" alt="Puma" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/puma-180.webp" alt="Puma 180"></div>
+        <div class="product-details">
+          <p class="name">Puma 180</p><p class="price">R$ 699,90</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/nike-logo.svg" alt="Nike" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/full-force.webp" alt="Nike Full Force Low"></div>
+        <div class="product-details">
+          <p class="name">Nike Full Force Low</p><p class="price">R$ 749,90</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/ale-logo1.png" alt="Alexander McQueen" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/ale.webp" alt="Alexander McQueen"></div>
+        <div class="product-details">
+          <p class="name">Alexander McQueen</p><p class="price">R$ 4.891,00</p>
+          <div class="card-actions"><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/adidas-logo.svg" alt="Adidas" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/campus.webp" alt="Campus 00s"></div>
+        <div class="product-details">
+          <p class="name">Campus 00s</p><p class="price">R$ 269,90</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/nike-logo.svg" alt="Nike" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/air-force.webp" alt="Air Force 1"></div>
+        <div class="product-details">
+          <p class="name">Air Force 1</p><p class="price">R$ 759,99</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-header"><img src="assets/images/adidas-logo.svg" alt="Adidas" class="brand-logo"></div>
+        <div class="product-image"><img class="tenisForum" src="assets/images/forum-low.webp" alt="Forum Low"></div>
+        <div class="product-details">
+          <p class="name">Forum Low</p><p class="price">R$ 799,99</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOVIDADES -->
+  <section class="novidades-section">
+    <div class="novidades-header">
+      <h2 class="section-title">Novidades</h2>
+      <div class="nav-arrows">
+        <button class="arrow">&#8249;</button>
+        <button class="arrow">&#8250;</button>
+      </div>
+    </div>
+    <div class="novidades-grid">
+
+      <div class="product-card">
+        <div class="card-badges"><span class="badge">NOVO</span></div>
+        <div class="card-header"><img src="assets/images/adidas-logo.svg" alt="Adidas" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/campus.webp" alt="Adidas Campus"></div>
+        <div class="product-details">
+          <p class="name">Adidas Campus</p><p class="price">R$ 345,00</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-badges"><span class="badge">NOVO</span></div>
+        <div class="card-header"><img src="assets/images/adidas-logo.svg" alt="Adidas" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/forum-low.webp" alt="Gucci Rhyton"></div>
+        <div class="product-details">
+          <p class="name">Gucci Rhyton</p><p class="price">R$ 4.153,00</p>
+          <div class="card-actions"><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-badges"><span class="badge">NOVO</span></div>
+        <div class="card-header"><img src="assets/images/nike-logo.svg" alt="Nike" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/nike-dunk.webp" alt="Nike Dunk"></div>
+        <div class="product-details">
+          <p class="name">Nike Dunk</p><p class="price">R$ 879,00</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-badges"><span class="badge">NOVO</span></div>
+        <div class="card-header"><img src="assets/images/Puma-Logo.png" alt="Puma" class="brand-logo"></div>
+        <div class="product-image"><img src="assets/images/puma rs.webp" alt="Puma RS-X"></div>
+        <div class="product-details">
+          <p class="name">Puma RS-X</p><p class="price">R$ 999,99</p>
+          <div class="card-actions"><span class="frete">FRETE GRÁTIS</span><button class="add-btn">+</button></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <p class="newsletter-label">Receba notícias</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Seu email..." class="newsletter-input">
+      <button class="newsletter-btn">Receber</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <span class="copyright">© 2026 TECHSNEAKERS. Todos os direitos reservados.</span>
+    <nav class="footer-menu">
+      <a href="#">Contato</a>
+      <a href="#">Sobre</a>
+      <a href="#">Ajuda</a>
+    </nav>
+  </footer>
+</div>

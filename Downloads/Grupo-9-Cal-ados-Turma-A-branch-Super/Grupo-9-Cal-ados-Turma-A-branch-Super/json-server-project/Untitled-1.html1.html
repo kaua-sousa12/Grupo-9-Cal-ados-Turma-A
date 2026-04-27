@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSneakers - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Banner Principal (Hero) */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 15px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-hero {
+            background-color: #fff;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Grade de Marcas/Urban */
+        .brand-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 50px 5%;
+        }
+
+        .urban-banner {
+            background: #e0e0e0 url('https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012') center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: #fff;
+        }
+
+        .brand-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .brand-card {
+            background-color: #f5f5f5;
+            height: 126px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Seção de Produtos */
+        .products-container {
+            padding: 50px 5%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            position: relative;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .free-shipping {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Footer / Newsletter */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            width: 300px;
+            border: none;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TECHSNEAKERS</div>
+        <nav>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Masculino</a></li>
+                <li><a href="#">Feminino</a></li>
+                <li><a href="#">Carrinho(0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>CORRE 5</h1>
+        <p>O melhor momento para começar é agora</p>
+        <a href="#" class="btn-hero">EXPLORAR COLEÇÃO</a>
+    </section>
+
+    <section class="brand-section">
+        <div class="urban-banner">
+            <h2>URBAN EXPLORE</h2>
+            <p>CONHEÇA NOSSA NOVA COLEÇÃO</p>
+        </div>
+        <div class="brand-list">
+            <div class="brand-card">NIKE</div>
+            <div class="brand-card">ADIDAS</div>
+            <div class="brand-card">PUMA</div>
+        </div>
+    </section>
+
+    <div class="products-container">
+        <h2 class="section-title">Novidades</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="badge">NOVO</span>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Tênis">
+                <div class="product-name">Nike Air Force 1</div>
+                <div class="price">R$ 799,90</div>
+                <div class="free-shipping">FRETE GRÁTIS</div>
+            </div>
+            <div class="product-card">
+                <span class="badge">MAIS VENDIDO</span>
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=500" alt="Tênis">
+                <div class="product-name">Adidas Campus 00s</div>
+                <div class="price">R$ 649,90</div>
+            </div>
+            <div class="product-card">
+                <span class="badge">NOVO</span>
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=500" alt="Tênis">
+                <div class="product-name">Nike Jordan 1</div>
+                <div class="price">R$ 1.299,00</div>
+                <div class="free-shipping">FRETE GRÁTIS</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="newsletter">
+            <p>Receba notícias e promoções:</p><br>
+            <input type="email" placeholder="Seu e-mail...">
+            <button>Receber</button>
+        </div>
+        <br><br>
+        <p>&copy; 2026 TECHSNEAKERS. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

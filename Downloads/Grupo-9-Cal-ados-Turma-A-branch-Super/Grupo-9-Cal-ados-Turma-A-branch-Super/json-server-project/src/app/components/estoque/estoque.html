@@ -1,0 +1,105 @@
+<div class="principal">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <h2>TECHSNEAKERS</h2>
+
+     <div class="perfil">
+        <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="Avatar">
+        <div class="perfil-info">
+          <a href="" class="perfil-link">Perfil</a>
+          <span class="perfil-greeting">Olá, Admin</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li routerLink="/gestaomarcas">Resumo</li>
+          <li routerLink="/historico" >Histórico</li>
+          <li routerLink="/estoque" class="active">Estoque</li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="conteudo">
+    <header class="cabecalho-principal">
+      <h1>Painel de Controle</h1>
+    </header>
+
+    <div class="grade-dashboard">
+      <section class="coluna-inventario">
+        <div class="cartao">
+          <h3>Novo produto</h3>
+          <div class="formulario-grid">
+
+           <input type="text" placeholder="Nome do produto" class="input-full" [(ngModel)]="novoProduto.nome" name="nome">
+          <input type="text" placeholder="Categoria" [(ngModel)]="novoProduto.categoria" name="categoria">
+
+          <input type="number" placeholder="Qtd" style="max-width: 80px;" 
+             [(ngModel)]="novoProduto.quantidade" name="quantidade">
+
+          <input type="number" placeholder="Preço (R$)" 
+            [(ngModel)]="novoProduto.preco" name="preco">
+
+          <button class="botao-primario" (click)="cadastrarProduto()">Cadastrar</button>
+          </div>
+        </div>
+
+        <div class="cartao">
+          <h3>Inventário Atual</h3>
+          <table class="tabela-dados">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Qtd</th>
+                <th>Status</th>
+                <th>Ações</th>
+                
+              </tr>
+            </thead>
+           <tbody>
+  <tr *ngFor="let p of produtos">
+    <td>{{ p.nome }}</td>
+    <td>{{ p.categoria }}</td>
+    <td>{{ p.preco | currency:'BRL' }}</td>
+    <td>{{ p.quantidade }}</td>
+    <td>
+      <span class="etiqueta" [ngClass]="p.quantidade > 5 ? 'sucesso' : 'perigo'">
+        {{ p.quantidade > 5 ? 'Em dia' : 'Crítico' }}
+      </span>
+    </td>
+    
+    <td>
+  <button class="botao-contorno">Editar</button>
+  
+  <button class="botao-lixeira" (click)="remover(p.id)">
+    🗑️
+  </button>
+</td>
+  </tr>
+</tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="coluna-pedidos">
+  <h3>Fila de Pedidos (Carrinho)</h3>
+
+  <div *ngFor="let item of itensCarrinho" class="cartao-pedido">
+    <strong>ID Produto: #{{ item.produtoId }}</strong>
+    <p class="pedido-info">Item: {{ item.nome }}</p>
+    <p class="pedido-info">Qtd Reservada: {{ item.quantidade }}</p>
+    <span class="etiqueta sucesso">{{ item.status }}</span>
+  </div>
+
+  <div *ngIf="itensCarrinho.length === 0">
+    <p class="pedido-info">Nenhum pedido pendente.</p>
+  
+
+  </div>
+  </aside>
+    </div>
+  </main>
+</div>
