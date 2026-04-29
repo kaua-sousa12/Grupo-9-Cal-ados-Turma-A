@@ -1,22 +1,37 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { Estoque } from './estoque';
+@Injectable({
+  providedIn: 'root'
+})
+export class EstoqueService {
 
-describe('Estoque', () => {
-  let component: Estoque;
-  let fixture: ComponentFixture<Estoque>;
+  private apiUrl = 'http://localhost:3000';
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Estoque],
-    }).compileComponents();
+  constructor(private http: HttpClient) {}
 
-    fixture = TestBed.createComponent(Estoque);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  getProdutos(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/produtos`);
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  getCarrinho(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/carrinho`);
+  }
+
+  cadastrar(produto: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/produtos`, produto);
+  }
+
+  atualizarProduto(id: string, produto: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/produtos/${id}`, produto);
+  }
+
+  excluirProduto(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/produtos/${id}`);
+  }
+
+  adicionarAoCarrinho(item: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/carrinho`, item);
+  }
+}
