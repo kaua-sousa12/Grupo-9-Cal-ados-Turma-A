@@ -23,13 +23,6 @@
       "preco": 50,
       "estoque": 100,
       "categoria": "Eletrônicos"
-    },
-    {
-      "id": "3",
-      "nome": "Teclado",
-      "preco": 150,
-      "estoque": 50,
-      "categoria": "Eletrônicos"
     }
   ],
   "posts": [

@@ -7,6 +7,8 @@ import { GestaoMarcas } from './components/gestao-marcas/gestao-marcas';
 import { Historico } from './components/historico/historico';
 import { Login } from './components/login/login';
 import { Estoque } from './components/estoque/estoque';
+import { Masculino } from './components/masculino/masculino';
+import { Feminino } from './components/feminino/feminino';
 
 const routes: Routes = [
   { path: '', component: UsuariosComponent },
@@ -16,12 +18,14 @@ const routes: Routes = [
   { path: 'historico', component: Historico },
   { path: 'login', component: Login },
   { path: 'estoque', component: Estoque },
+  { path: 'masculino', component: Masculino },
+  { path: 'feminino', component: Feminino }
 ];
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
-    provideRouter(routes) 
+    provideRouter(routes)
   ]
 };
