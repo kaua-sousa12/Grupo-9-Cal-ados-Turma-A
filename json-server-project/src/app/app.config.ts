@@ -9,6 +9,7 @@ import { Login } from './components/login/login';
 import { Estoque } from './components/estoque/estoque';
 import { Masculino } from './components/masculino/masculino';
 import { Feminino } from './components/feminino/feminino';
+import { Carrinho } from './components/carrinho/carrinho';
 
 const routes: Routes = [
   { path: '', component: UsuariosComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'estoque', component: Estoque },
   { path: 'masculino', component: Masculino },
-  { path: 'feminino', component: Feminino }
+  { path: 'feminino', component: Feminino },
+  { path: 'carrinho', component: Carrinho }
 ];
 
 export const appConfig: ApplicationConfig = {
