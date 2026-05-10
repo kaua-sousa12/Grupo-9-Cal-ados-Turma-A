@@ -9,12 +9,17 @@ export class EstoqueService {
 
   private apiUrl = 'http://localhost:3000/produtos';
   private apiCarrinho = 'http://localhost:3000/carrinho';
+  private apiPedidos = 'http://localhost:3000/pedidos';
 
   constructor(private http: HttpClient) {}
 
   getProdutos(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  getPedidos(): Observable<any[]> {
+  return this.http.get<any[]>(this.apiPedidos);
+}
 
   getCarrinho(): Observable<any[]> {
     return this.http.get<any[]>(this.apiCarrinho);

@@ -217,6 +217,42 @@
     outline: -webkit-focus-ring-color auto 5px !important;
   }
 
+  .btn-cart {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #000;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+  }
+
+  .btn-cart:hover {
+    background-color: #1f1f1f;
+  }
+
+  /* Hover */
+  .btn-cart:hover {
+    background: #1f1f1f;
+    transform: translateY(-2px);
+  }
+
+  /* Clique */
+  .btn-cart:active {
+    transform: scale(0.98);
+  }
+
   a {
     text-decoration: none;
   }
@@ -357,9 +393,14 @@
   /* --- Layout Inferior --- */
   .product-footer {
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-end;
-    margin-top: auto;
+
+    margin-top: 20px;
+
+    gap: 15px;
   }
 
   .product-details .name {
@@ -377,6 +418,7 @@
 
   /* --- Frete Grátis (Bottom Right) --- */
   .shipping-info {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -411,15 +453,14 @@
   }
 
   .product-card {
-    background-color: #f2f2f2;
-    border-radius: 15px;
-    padding: 30px;
     display: flex;
     flex-direction: column;
+
     justify-content: space-between;
-    min-height: 420px;
-    transition: transform 0.2s;
-    border: 3px solid #000;
+
+    padding: 20px;
+
+    position: relative;
   }
 
   .product-card:hover {
@@ -513,6 +554,13 @@
     justify-content: center;
     align-items: center;
     padding: 30px 0;
+  }
+
+  .product-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
   }
 
   .product-details .name {

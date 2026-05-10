@@ -100,14 +100,36 @@
           <strong>ID Produto: #{{ item.produtoId }}</strong>
           <p class="pedido-info">Item: {{ item.nome }}</p>
           <p class="pedido-info">Qtd Reservada: {{ item.quantidade }}</p>
-          <span class="etiqueta sucesso">{{ item.status }}</span>
+          <span class="etiqueta sucesso">Em carrinho</span>
         </div>
 
         <div *ngIf="itensCarrinho.length === 0">
-          <p class="pedido-info">Nenhum pedido pendente.</p>
-
-
+          <p class="pedido-info">Nenhum item no carrinho.</p>
         </div>
+
+        <hr>
+
+        <h3>Pedidos Finalizados</h3>
+
+        <div *ngFor="let pedido of pedidos" class="cartao-pedido">
+          <strong>Pedido #{{ pedido.id }}</strong>
+
+          <p class="pedido-info">Total: R$ {{ pedido.total.toFixed(2) }}</p>
+          <p class="pedido-info">Status: {{ pedido.status }}</p>
+
+          <div *ngFor="let item of pedido.itens">
+            <p class="pedido-info">
+              {{ item.produto }} - Qtd: {{ item.quantidade }}
+            </p>
+          </div>
+
+          <span class="etiqueta sucesso">{{ pedido.status }}</span>
+        </div>
+
+        <div *ngIf="pedidos.length === 0">
+          <p class="pedido-info">Nenhum pedido finalizado.</p>
+        </div>
+
       </aside>
     </div>
   </main>

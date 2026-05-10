@@ -23,6 +23,7 @@ export class Estoque implements OnInit {
 
   produtos: Produto[] = [];
   itensCarrinho: any[] = [];
+  pedidos: any[] = [];
 
   novoProduto = {
     nome: '',
@@ -31,15 +32,22 @@ export class Estoque implements OnInit {
     estoque: 0
   };
 
-  constructor(private estoqueservice: EstoqueService) {}
+  constructor(private estoqueservice: EstoqueService) { }
 
   ngOnInit() {
     this.listarTudo();
+    this.carregarPedidos();
   }
 
   listarTudo() {
     this.estoqueservice.getProdutos().subscribe(res => this.produtos = res);
     this.estoqueservice.getCarrinho().subscribe(res => this.itensCarrinho = res);
+  }
+
+    carregarPedidos() {
+    this.estoqueservice.getPedidos().subscribe(res => {
+      this.pedidos = res;
+    });
   }
 
   cadastrarProduto() {
