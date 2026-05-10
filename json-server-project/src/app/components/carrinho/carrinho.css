@@ -8,7 +8,7 @@
 @font-face {
     font-family: "Dosis";
     src: local("Dosis"), local("Arial");
-  }
+}
 
 .box {
     position: relative;
@@ -41,7 +41,7 @@
     letter-spacing: 2px;
     color: #fff;
     text-decoration: none;
-  }
+}
 
 .main-menu {
     display: flex;
@@ -86,29 +86,51 @@
 
 .cart-container {
     display: flex;
-    gap: 24px;
+    gap: 30px;
+    /* Aumentado gap */
     align-items: flex-start;
-    max-width: 900px;
+    max-width: 1000px;
+    /* Aumentado max-width */
+    margin: 0 auto;
 }
 
 .items-list {
-    width: 450px;
+    width: 600px;
+    /* Aumentada largura substancialmente */
     min-width: 0;
     background: #fff;
     border-radius: 12px;
-    padding: 20px;
+    padding: 25px;
+    /* Aumentado padding */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    /* Aumentado gap */
 }
 
 .cart-item {
     border: 3px solid #000;
-    border-radius: 8px;
-    padding: 12px;
+    border-radius: 10px;
+    /* Ajustado border-radius */
+    padding: 18px;
+    /* Aumentado padding */
     display: flex;
-    gap: 12px;
+    gap: 18px;
+    /* Aumentado gap */
     align-items: center;
+}
+
+.item-image {
+    width: 110px;
+    min-width: 110px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .item-image {
@@ -229,57 +251,106 @@
     white-space: nowrap;
 }
 
+/* Container do Resumo do Pedido */
 .order-summary {
-    width: 300px;
+    width: 350px;
     min-width: 240px;
     flex-shrink: 0;
     align-self: flex-start;
     background: #fff;
     border-radius: 12px;
-    padding: 22px 18px;
+    padding: 45px 25px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
 }
 
 .summary-title {
     font-size: 25px;
     font-weight: 700;
     color: #111;
-    margin: 0;
+    margin: 0 0 5px 0;
 }
 
+/* Linhas de Informação */
 .summary-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 18px;
     color: #333;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0; /* Linha de separação discreta */
 }
 
 .summary-row strong {
     font-weight: 700;
 }
 
+/* Campos de Seleção e Input */
 .summary-field {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0; /* Linha de separação discreta */
 }
 
 .summary-field label {
     font-size: 16px;
-    color: #333;
+    font-weight: 600;
+    color: #111;
 }
 
+/* Input de Frete */
+.freight-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.freight-input {
+    flex: 1;
+    background: #ebebeb;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Dosis', sans-serif;
+}
+
+.btn-calculate-freight {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* Select de Pagamento */
 .summary-select-display {
     background: #ebebeb;
     border-radius: 5px;
-    padding: 8px 10px;
-    font-size: 15px;
-    color: #333;
+    padding: 5px 10px;
 }
 
+.summary-select-display select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-family: 'Dosis', sans-serif;
+    font-size: 15px;
+    padding: 5px 0;
+    outline: none;
+}
+
+/* Seção de Total */
 .summary-total {
     display: flex;
     justify-content: space-between;
@@ -288,44 +359,45 @@
     font-weight: 800;
     color: #111;
     padding-top: 10px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 2px solid #111; /* Linha mais forte para destacar o total */
 }
 
 .summary-total strong {
-    font-size: 19px;
-    font-weight: 800;
+    font-size: 20px;
 }
 
+/* Botões de Ação */
 .btn-checkout {
-    background: #111;
+    background: #000;
     color: #fff;
     border: none;
     border-radius: 6px;
-    padding: 13px;
-    font-size: 12px;
+    padding: 15px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     width: 100%;
-    transition: background 0.2s;
-}
-
-.btn-checkout:hover {
-    background: #333;
+    margin-top: 5px;
 }
 
 .btn-continue {
     text-align: center;
-    font-size: 16px;
-    color: #111;
+    font-size: 14px;
+    color: #666;
     text-decoration: underline;
     cursor: pointer;
     display: block;
 }
 
+.summary-total strong {
+    font-size: 20px;
+}
+
 .btn-continue:hover {
-    color: #444;
+    color: #111;
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
