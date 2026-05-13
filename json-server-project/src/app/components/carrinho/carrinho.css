@@ -222,7 +222,7 @@
     border: none;
     width: 26px;
     height: 24px;
-    font-size: 15px;
+    font-size: 18px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -253,20 +253,20 @@
 
 /* Container do Resumo do Pedido */
 .order-summary {
-    width: 350px;
+    width: 380px;
     min-width: 240px;
     flex-shrink: 0;
     align-self: flex-start;
     background: #fff;
     border-radius: 12px;
-    padding: 45px 25px;
+    padding: 45px 30px;
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
 .summary-title {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 700;
     color: #111;
     margin: 0 0 5px 0;
@@ -285,6 +285,7 @@
 
 .summary-row strong {
     font-weight: 700;
+    font-family: 'Dosis';
 }
 
 /* Campos de Seleção e Input */
@@ -299,6 +300,7 @@
 .summary-field label {
     font-size: 16px;
     font-weight: 600;
+    font-family: 'Dosis';
     color: #111;
 }
 
@@ -327,8 +329,9 @@
     border: none;
     border-radius: 5px;
     padding: 12px 15px;
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Dosis';
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -356,6 +359,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 18px;
+    font-family: 'Dosis';
     font-weight: 800;
     color: #111;
     padding-top: 10px;
@@ -364,6 +368,7 @@
 
 .summary-total strong {
     font-size: 20px;
+    font-family: 'Dosis';
 }
 
 /* Botões de Ação */
@@ -374,6 +379,7 @@
     border-radius: 6px;
     padding: 15px;
     font-size: 13px;
+    font-family: 'Dosis';
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -385,6 +391,7 @@
 .btn-continue {
     text-align: center;
     font-size: 14px;
+    font-family: 'Dosis';
     color: #666;
     text-decoration: underline;
     cursor: pointer;
@@ -393,6 +400,7 @@
 
 .summary-total strong {
     font-size: 20px;
+    font-family: 'Dosis';
 }
 
 .btn-continue:hover {
@@ -428,6 +436,7 @@
     font-size: 18px;
     color: #fff;
     font-weight: 400;
+    font-family: 'Dosis';
 }
 
 .footer-menu {
@@ -441,6 +450,7 @@
     color: #fff;
     font-weight: 400;
     transition: opacity 0.3s;
+    font-family: 'Dosis';
 }
 
 .footer-menu a:hover {

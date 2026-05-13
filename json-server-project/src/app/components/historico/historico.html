@@ -2,7 +2,6 @@
   <aside class="sidebar">
     <div class="sidebar-top">
       <h2>TECHSNEAKERS</h2>
-
       <div class="perfil">
         <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="Avatar">
         <div class="perfil-info">
@@ -23,7 +22,7 @@
   <div class="content">
     <header class="top-bar">
       <h1>Painel de Controle</h1>
-      <button class="btn-sair">Sair</button>
+      <button class="btn-sair"><a routerLink="/">Sair</a></button>
     </header>
 
     <main class="card-painel">
@@ -36,36 +35,45 @@
           <thead>
             <tr>
               <th>Data</th>
-              <th>Produto</th>
-              <th>Marca</th>
-              <th>Valor</th>
+              <th>Pedido</th>
+              <th>Produtos</th>
+              <th>Qtd. Itens</th>
+              <th>Total</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>03/04/2026</td>
-              <td class="product-name">Tênis Air Max</td>
-              <td><span class="brand-tag">Nike</span></td>
-              <td class="price">R$ 450,00</td>
+
+            <!-- nenhum pedido -->
+            <tr *ngIf="pedidos.length === 0">
+              <td colspan="6" style="text-align:center; padding: 2rem;">
+                Nenhum pedido encontrado.
+              </td>
             </tr>
-            <tr>
-              <td>03/04/2026</td>
-              <td class="product-name">Camisa Treino</td>
-              <td><span class="brand-tag">Adidas</span></td>
-              <td class="price">R$ 120,00</td>
+
+            <!-- um <tr> por pedido -->
+            <tr *ngFor="let pedido of pedidos">
+
+              <td>{{ formatarData(pedido.data) }}</td>
+
+              <td>#{{ pedido.id }}</td>
+
+              <td class="product-name">
+                {{ listarProdutos(pedido.itens) }}
+              </td>
+
+              <td>
+                {{ totalItens(pedido.itens) }}
+              </td>
+
+              <td class="price">{{ formatarPreco(pedido.total) }}</td>
+
+              <td>
+                <span class="brand-tag">{{ pedido.status }}</span>
+              </td>
+
             </tr>
-            <tr>
-              <td>02/04/2026</td>
-              <td class="product-name">Meias Pack</td>
-              <td><span class="brand-tag">Puma</span></td>
-              <td class="price">R$ 45,00</td>
-            </tr>
-            <tr>
-              <td>02/04/2026</td>
-              <td class="product-name">Chuteira Campo</td>
-              <td><span class="brand-tag">Reebok</span></td>
-              <td class="price">R$ 380,00</td>
-            </tr>
+
           </tbody>
         </table>
       </div>

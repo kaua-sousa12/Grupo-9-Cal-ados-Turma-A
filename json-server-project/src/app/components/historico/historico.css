@@ -100,6 +100,12 @@
     transition: 0.3s;
 }
 
+.btn-sair a {
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .btn-sair:hover {
     background: #ff3860;
     border-color: #ff3860;

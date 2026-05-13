@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api';
 import { Usuario } from '../../models/models';
-import { RouterLink } from "@angular/router";
+import { RouterLink, Router } from "@angular/router";
+import { PedidosService } from '../../services/pedidos.service';
+
 @Component({
   selector: 'app-usuarios',
   standalone: true,
@@ -14,12 +16,21 @@ import { RouterLink } from "@angular/router";
 
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
+  carrinho: any[] = [];
   loading = false;
   error: string | null = null;
   successMessage: string | null = null;
   newUsuario: Usuario = { nome: '', email: '', telefone: '', profissao: '' };
-  constructor(private apiService: ApiService) { }
-  ngOnInit(): void { this.loadUsuarios(); }
+  constructor(private apiService: ApiService, private pedidosService: PedidosService, private router: Router) { }
+  ngOnInit(): void {
+    this.loadUsuarios();
+    const carrinhoSalvo = localStorage.getItem('carrinho');
+
+    if (carrinhoSalvo) {
+      this.carrinho = JSON.parse(carrinhoSalvo);
+    }
+  }
+
   loadUsuarios(): void {
     this.loading = true;
     this.error = null;

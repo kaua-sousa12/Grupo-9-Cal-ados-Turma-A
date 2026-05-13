@@ -21,13 +21,31 @@ export class Carrinho {
   ) { }
 
   ngOnInit(): void {
-
     const carrinhoSalvo = localStorage.getItem('carrinho');
-
     if (carrinhoSalvo) {
       this.carrinho = JSON.parse(carrinhoSalvo);
     }
+  }
 
+  aumentarQuantidade(item: any) {
+    item.quantidade++;
+    this.salvarCarrinho();
+  }
+
+  diminuirQuantidade(item: any) {
+    if (item.quantidade > 1) {
+      item.quantidade--;
+      this.salvarCarrinho();
+    }
+  }
+
+  removerItem(index: number) {
+    this.carrinho.splice(index, 1);
+    this.salvarCarrinho();
+  }
+
+  private salvarCarrinho() {
+    localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
   }
 
   finalizarCompra() {
@@ -45,10 +63,8 @@ export class Carrinho {
     this.pedidosService.criarPedido(pedido).subscribe({
       next: () => {
         alert('Pedido realizado com sucesso!');
-
         this.carrinho = [];
         localStorage.removeItem('carrinho');
-
         this.router.navigate(['/']);
       },
       error: () => {

@@ -12,7 +12,7 @@
             <a routerLink="/feminino">Feminino</a>
 
             <a routerLink="/carrinho" class="cart">
-                Carrinho({{ carrinho.length }})
+                Carrinho ({{ carrinho.length }})
             </a>
         </nav>
 
@@ -29,7 +29,8 @@
             <!-- LISTA DINÂMICA -->
             <div class="items-list">
 
-                <div class="cart-item" *ngFor="let item of carrinho">
+                <!-- por isto: -->
+                <div class="cart-item" *ngFor="let item of carrinho; let i = index">
 
                     <!-- IMAGEM -->
                     <div class="item-image">
@@ -56,7 +57,7 @@
                             </div>
 
                             <!-- REMOVER -->
-                            <button class="btn-delete">
+                            <button class="btn-delete" (click)="removerItem(i)">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -87,7 +88,7 @@
 
                                 <div class="quantity-selector">
 
-                                    <button class="qty-btn">
+                                    <button class="qty-btn" (click)="diminuirQuantidade(item)">
                                         −
                                     </button>
 
@@ -95,7 +96,7 @@
                                         {{ item.quantidade }}
                                     </span>
 
-                                    <button class="qty-btn">
+                                    <button class="qty-btn" (click)="aumentarQuantidade(item)">
                                         +
                                     </button>
 
