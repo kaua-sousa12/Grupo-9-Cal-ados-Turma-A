@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api';
 import { Usuario } from '../../models/models';
 import { RouterLink } from "@angular/router";
+import { EstoqueService } from '../estoque/estoque.service';
 @Component({
   selector: 'app-usuarios',
   standalone: true,
@@ -14,13 +15,18 @@ import { RouterLink } from "@angular/router";
 
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
+  pedidos: any[] = [];
+
   loading = false;
   error: string | null = null;
   successMessage: string | null = null;
   quantidadeCarrinho = 0;
   newUsuario: Usuario = { nome: '', email: '', telefone: '', profissao: '' };
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private estoqueService: EstoqueService
+  ) { }
 
   ngOnInit(): void {
     this.loadUsuarios();
@@ -32,6 +38,7 @@ export class UsuariosComponent implements OnInit {
       (total: number, item: any) => total + item.quantidade,
       0
     );
+    this.carregarPedidos();
   }
 
   loadUsuarios(): void {
@@ -99,7 +106,16 @@ export class UsuariosComponent implements OnInit {
 
     alert('Produto adicionado ao carrinho!');
   }
+  carregarPedidos() {
 
+    this.estoqueService
+      .getPedidos()
+      .subscribe(res => {
+
+        this.pedidos = res;
+
+      });
+  }
 
 }
 

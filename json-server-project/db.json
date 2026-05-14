@@ -25,7 +25,39 @@
       "categoria": "Eletrônicos"
     }
   ],
-  "pedidos": [],
+  "pedidos": [
+    {
+      "itens": [
+        {
+          "produto": "Nike Dunk",
+          "quantidade": 1,
+          "preco": 699.9
+        }
+      ],
+      "total": 699.9,
+      "status": "pendente",
+      "data": "2026-05-14T01:19:33.157Z",
+      "id": 1
+    },
+    {
+      "itens": [
+        {
+          "produto": "Nike Dunk",
+          "quantidade": 1,
+          "preco": 699.9
+        },
+        {
+          "produto": "Puma RS-X",
+          "quantidade": 2,
+          "preco": 599.9
+        }
+      ],
+      "total": 1899.6999999999998,
+      "status": "pendente",
+      "data": "2026-05-14T01:40:53.403Z",
+      "id": 2
+    }
+  ],
   "posts": [
     {
       "id": "1",

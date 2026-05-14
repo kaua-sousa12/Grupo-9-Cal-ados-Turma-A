@@ -766,3 +766,17 @@
   .newsletter-button:hover {
     background-color: #222;
   }
+
+  .mensagem-pedido {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid #222;
+  }
+
+  .mensagem-pedido p {
+    margin: 0;
+  }
