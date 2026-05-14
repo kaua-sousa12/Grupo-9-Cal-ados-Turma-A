@@ -10,6 +10,7 @@ import { Estoque } from './components/estoque/estoque';
 import { Masculino } from './components/masculino/masculino';
 import { Feminino } from './components/feminino/feminino';
 import { Carrinho } from './components/carrinho/carrinho';
+import { Configuracoes } from './components/configuracoes/configuracoes';
 
 const routes: Routes = [
   { path: '', component: UsuariosComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'estoque', component: Estoque },
   { path: 'masculino', component: Masculino },
   { path: 'feminino', component: Feminino },
-  { path: 'carrinho', component: Carrinho }
+  { path: 'carrinho', component: Carrinho },
+  { path: 'configuracoes', component: Configuracoes }
 ];
 
 export const appConfig: ApplicationConfig = {

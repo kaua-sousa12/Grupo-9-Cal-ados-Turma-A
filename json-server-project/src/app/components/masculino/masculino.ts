@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './masculino.css',
 })
 export class Masculino implements OnInit {
-
+  usuarioLogado: any = null;
   quantidadeCarrinho = 0;
 
 
@@ -40,7 +40,7 @@ export class Masculino implements OnInit {
   ];
 
   ngOnInit(): void {
-
+    this.usuarioLogado = JSON.parse(localStorage.getItem('usuario') || 'null');
     const carrinho = JSON.parse(
       localStorage.getItem('carrinho') || '[]'
     );

@@ -12,7 +12,7 @@ import { PedidosService } from '../../services/pedidos.service';
   styleUrl: './carrinho.css',
 })
 export class Carrinho {
-
+  usuarioLogado: any = null;
   carrinho: any[] = [];
 
   constructor(
@@ -25,6 +25,9 @@ export class Carrinho {
     if (carrinhoSalvo) {
       this.carrinho = JSON.parse(carrinhoSalvo);
     }
+
+    this.usuarioLogado = JSON.parse(localStorage.getItem('usuario') || 'null');
+
   }
 
   aumentarQuantidade(item: any) {

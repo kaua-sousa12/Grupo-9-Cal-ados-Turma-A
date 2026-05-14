@@ -3,7 +3,8 @@
         <a class="logo" routerLink="/">TECHSNEAKERS</a>
 
         <nav class="main-menu">
-            <a routerLink="/login">Login</a>
+            <a *ngIf="!usuarioLogado" routerLink="/login">Login</a>
+            <a *ngIf="usuarioLogado" routerLink="/configuracoes">Configurações</a>
             <a routerLink="/masculino">Masculino</a>
             <a routerLink="/feminino">Feminino</a>
             <a routerLink="/carrinho" class="cart">
