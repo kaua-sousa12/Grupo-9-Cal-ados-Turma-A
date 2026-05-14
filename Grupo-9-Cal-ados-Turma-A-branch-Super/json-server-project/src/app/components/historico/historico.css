@@ -1,0 +1,200 @@
+/* Configuração Global */
+:host {
+    display: block;
+    height: 100vh;
+}
+
+.main-container {
+        display: flex;
+    height: 100vh;
+    /* Overlay escuro ajuda a destacar os cards de vidro */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://i.imgur.com/1QlyD5c.jpeg') center/cover no-repeat fixed;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #4db6ac;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 18px 30px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: #4db6ac;
+}
+
+.menu-item {
+    padding: 18px 30px;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    border-left: 4px solid transparent;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: #4db6ac;
+}
+
+/* Conteúdo Principal */
+.content {
+    flex: 1;
+    padding: 37px 40px;
+    overflow-y: auto;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.top-bar h1 {
+  font-size: 32px;
+}
+
+.btn-sair {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-sair:hover {
+    background: #ff3860;
+    border-color: #ff3860;
+}
+
+/* Painel Central */
+.card-painel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.card-header h2 {
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    color: #4db6ac;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+td {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.product-name {
+    font-weight: 500;
+}
+
+.price {
+    color: #4db6ac;
+    font-weight: bold;
+}
+
+/* Rodapé da Sidebar / Perfil */
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.08); 
+    border-radius: 12px;
+    margin-bottom: 50px;
+    margin-left: 15px; 
+    margin-right: 15px;
+}
+
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.perfil-greeting {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 400; 
+}
+
+.perfil-link {
+    font-size: 0.9rem;
+    color: #D9D9D9;
+    text-decoration: none;
+}

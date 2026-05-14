@@ -1,0 +1,279 @@
+:host {
+  display: block;
+  background-image: url('https://i.imgur.com/1QlyD5c.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+:host {
+    display: block;
+    height: 100vh;
+}
+
+.principal {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://i.imgur.com/1QlyD5c.jpeg') center/cover no-repeat fixed;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.sidebar {
+    width: 260px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-top h2 {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #4db6ac;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 18px 30px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: #4db6ac;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.08); 
+    border-radius: 12px;
+    margin-bottom: 50px;
+    margin-left: 15px; 
+    margin-right: 15px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.perfil-greeting {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 400; 
+}
+
+.perfil-link {
+    font-size: 0.9rem;
+    color: #D9D9D9;
+    text-decoration: none;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.cabecalho-principal {
+  margin-bottom: 40px;
+}
+
+.cabecalho-principal h1 {
+  font-size: 32px;
+}
+
+.grade-dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.cartao {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.cartao h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.formulario-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.formulario-grid input {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  flex: 1;
+  min-width: 120px;
+}
+
+.formulario-grid input::placeholder {
+  color: white; 
+  opacity: 10; 
+}
+.coluna-pedidos h3{
+  margin-bottom: 10px;
+}
+
+.input-full {
+  flex-basis: 100% !important;
+}
+
+.botao-primario {
+  background: #46a3a3;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tabela-dados {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-dados th {
+  text-align: left;
+  padding: 10px;
+  color: #ccc;
+  font-size: 13px;
+}
+
+.tabela-dados td {
+  padding: 15px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+}
+
+.etiqueta {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.sucesso { background: #00d1b2; }
+.perigo { background: #ff3860; }
+
+.botao-contorno {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cartao-pedido {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-left: 5px solid #4db6ac;
+}
+
+.atendido {
+  border-left-color: #4CAF50;
+  opacity: 0.7;
+}
+
+.pedido-info {
+  font-size: 14px;
+  color: #ddd;
+  margin: 5px 0;
+}
+
+.check-atendido {
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.botao-atender {
+  background: #4db6ac;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+.controle-estoque {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.botao-qtd {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-qtd:hover {
+  background: rgba(77, 182, 172, 0.5);
+  border-color: #4db6ac;
+}
