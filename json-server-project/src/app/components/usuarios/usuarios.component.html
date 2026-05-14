@@ -5,7 +5,7 @@
             <a routerLink="/login">Login</a>
             <a routerLink="/masculino">Masculino</a>
             <a routerLink="/feminino">Feminino</a>
-            <a routerLink="/carrinho" class="cart">Carrinho(0)</a>
+            <a routerLink="/carrinho" class="cart">Carrinho ({{ quantidadeCarrinho }})</a>
         </nav>
     </header>
 
@@ -72,43 +72,130 @@
                         </svg>
                     </div>
                 </div>
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 1,
+            nome: 'Nike Dunk',
+            preco: 699.90,
+            imagem: 'assets/images/nike-dunk.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
             </div>
 
             <div class="product-card">
+
                 <div class="card-header">
+
                     <img src="assets/images/Puma-Logo.png" alt="Puma" class="brand-logo">
+
                 </div>
+
                 <div class="product-image">
-                    <img src="assets/images/puma rs.webp" alt="Adidas Stan Smith">
+
+                    <img src="assets/images/puma rs.webp" alt="Puma RS-X">
+
                 </div>
-                <div class="product-details">
-                    <p class="name">Puma RS-X</p>
-                    <p class="price">R$ 599,90</p>
+
+                <div class="product-footer">
+
+                    <div class="product-details">
+
+                        <p class="name">
+                            Puma RS-X
+                        </p>
+
+                        <p class="price">
+                            R$ 599,90
+                        </p>
+
+                    </div>
+
                 </div>
+
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 2,
+            nome: 'Puma RS-X',
+            preco: 599.90,
+            imagem: 'assets/images/puma rs.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
+
             </div>
 
             <div class="product-card">
-                <div class="card-header">
-                    <img src="assets/images/Puma-Logo.png" alt="Adidas" class="brand-logo">
-                </div>
-                <div class="product-image">
-                    <img src="assets/images/puma-180.webp">
-                </div>
+
                 <div class="status-badge">
+
                     <div class="status-icon">
+
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
                             <circle cx="12" cy="12" r="12" fill="black" />
+
                             <path
                                 d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"
                                 fill="white" />
+
                         </svg>
+
                     </div>
-                    <p class="status-text">MAIS<br>VENDIDO</p>
+
+                    <p class="status-text">
+                        MAIS<br>VENDIDO
+                    </p>
+
                 </div>
-                <div class="product-details">
-                    <p class="name">Puma 180</p>
-                    <p class="price">R$ 699,90</p>
+
+                <div class="card-header">
+
+                    <img src="assets/images/Puma-Logo.png" alt="Puma" class="brand-logo">
+
                 </div>
+
+                <div class="product-image">
+
+                    <img src="assets/images/puma-180.webp">
+
+                </div>
+
+                <div class="product-footer">
+
+                    <div class="product-details">
+
+                        <p class="name">
+                            Puma 180
+                        </p>
+
+                        <p class="price">
+                            R$ 699,90
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 3,
+            nome: 'Puma 180',
+            preco: 699.90,
+            imagem: 'assets/images/puma-180.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
+
             </div>
 
             <div class="brands-column">
@@ -125,6 +212,7 @@
                         <img src="assets/images/Puma-Logo.png" alt="Puma">
                     </div>
                 </div>
+
             </div>
 
             <div class="product-card">
@@ -140,7 +228,7 @@
                 <div class="product-footer">
                     <div class="product-details">
                         <p class="name">Alexander McQueen</p>
-                        <p class="price">R$ 4891,00</p>
+                        <p class="price">R$ 489,00</p>
                     </div>
 
                     <div class="shipping-info">
@@ -154,48 +242,138 @@
                         </svg>
                     </div>
                 </div>
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 4,
+            nome: 'Alexander McQueen',
+            preco: 489.00,
+            imagem: 'assets/images/ale.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
             </div>
 
             <div class="product-card">
+
                 <div class="card-top-row">
-                    <div class="new-badge">NOVO</div>
+
+                    <div class="new-badge">
+                        NOVO
+                    </div>
+
                     <img src="assets/images/adidas-logo.svg" alt="Adidas" class="brand-logo">
+
                 </div>
 
                 <div class="product-image">
+
                     <img src="assets/images/campus.webp">
+
                 </div>
-                <div class="product-details">
-                    <p class="name">Campus 00s</p>
-                    <p class="price">R$ 269,90</p>
+
+                <div class="product-footer">
+
+                    <div class="product-details">
+
+                        <p class="name">
+                            Campus 00s
+                        </p>
+
+                        <p class="price">
+                            R$ 269,90
+                        </p>
+
+                    </div>
+
                 </div>
+
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 5,
+            nome: 'Campus 00s',
+            preco: 269.90,
+            imagem: 'assets/images/campus.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
+
             </div>
 
             <div class="product-card">
+
                 <div class="status-badge">
+
                     <div class="status-icon">
+
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
                             <circle cx="12" cy="12" r="12" fill="black" />
+
                             <path
                                 d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"
                                 fill="white" />
+
                         </svg>
+
                     </div>
-                    <p class="status-text">MAIS<br>VENDIDO</p>
+
+                    <p class="status-text">
+                        MAIS<br>VENDIDO
+                    </p>
+
                 </div>
 
                 <div class="card-top-row">
-                    <div class="new-badge">NOVO</div>
+
+                    <div class="new-badge">
+                        NOVO
+                    </div>
+
                     <img src="assets/images/nike-logo.svg" alt="Nike" class="brand-logo">
+
                 </div>
 
                 <div class="product-image">
+
                     <img src="assets/images/air-force.webp">
+
                 </div>
-                <div class="product-details">
-                    <p class="name">Air Force 1</p>
-                    <p class="price">R$ 759,99</p>
+
+                <div class="product-footer">
+
+                    <div class="product-details">
+
+                        <p class="name">
+                            Air Force 1
+                        </p>
+
+                        <p class="price">
+                            R$ 759,99
+                        </p>
+
+                    </div>
+
                 </div>
+
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 6,
+            nome: 'Air Force 1',
+            preco: 759.99,
+            imagem: 'assets/images/air-force.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
+
             </div>
 
             <div class="product-card">
@@ -223,6 +401,18 @@
                         </svg>
                     </div>
                 </div>
+                <button class="btn-cart" (click)="adicionarAoCarrinho({
+
+            id: 7,
+            nome: 'Forum Low',
+            preco: 599.90,
+            imagem: 'assets/images/forum-low.webp'
+
+        })">
+
+                    Adicionar ao Carrinho
+
+                </button>
             </div>
         </div>
     </section>
