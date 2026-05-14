@@ -45,7 +45,10 @@ export class Masculino implements OnInit {
       localStorage.getItem('carrinho') || '[]'
     );
 
-    this.quantidadeCarrinho = carrinho.length;
+    this.quantidadeCarrinho = carrinho.reduce(
+      (total: number, item: any) => total + item.quantidade,
+      0
+    );
 
   }
 
@@ -69,6 +72,7 @@ export class Masculino implements OnInit {
         ...produto,
         quantidade: 1
       });
+
     }
 
     localStorage.setItem(
@@ -76,7 +80,12 @@ export class Masculino implements OnInit {
       JSON.stringify(carrinho)
     );
 
+
+    this.quantidadeCarrinho = carrinho.reduce(
+      (total: number, item: any) => total + item.quantidade,
+      0
+    );
+
     alert('Produto adicionado ao carrinho!');
   }
-
 }

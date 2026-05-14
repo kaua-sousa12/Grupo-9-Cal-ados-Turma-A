@@ -3,34 +3,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api';
 import { Usuario } from '../../models/models';
-import { RouterLink, Router } from "@angular/router";
-import { PedidosService } from '../../services/pedidos.service';
-
+import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-usuarios',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
 
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
-  carrinho: any[] = [];
   loading = false;
   error: string | null = null;
   successMessage: string | null = null;
+  quantidadeCarrinho = 0;
   newUsuario: Usuario = { nome: '', email: '', telefone: '', profissao: '' };
-  constructor(private apiService: ApiService, private pedidosService: PedidosService, private router: Router) { }
-  ngOnInit(): void {
-    this.loadUsuarios();
-    const carrinhoSalvo = localStorage.getItem('carrinho');
-
-    if (carrinhoSalvo) {
-      this.carrinho = JSON.parse(carrinhoSalvo);
-    }
-  }
-
+  constructor(private apiService: ApiService) { }
+  ngOnInit(): void { this.loadUsuarios(); }
   loadUsuarios(): void {
     this.loading = true;
     this.error = null;
@@ -43,6 +33,7 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
+
   onSubmit(): void {
     if (!this.newUsuario.nome || !this.newUsuario.email ||
       !this.newUsuario.telefone || !this.newUsuario.profissao) { return; }
@@ -59,5 +50,52 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
+  adicionarAoCarrinho(produto: any) {
+
+    const carrinho = JSON.parse(
+      localStorage.getItem('carrinho') || '[]'
+    );
+
+    const itemExistente = carrinho.find(
+      (item: any) => item.id === produto.id
+    );
+
+    if (itemExistente) {
+
+      itemExistente.quantidade++;
+
+    } else {
+
+      carrinho.push({
+        ...produto,
+        quantidade: 1
+      });
+
+    }
+
+    localStorage.setItem(
+      'carrinho',
+      JSON.stringify(carrinho)
+    );
+
+    this.quantidadeCarrinho = carrinho.reduce(
+      (total: number, item: any) =>
+        total + item.quantidade,
+      0
+    );
+
+    alert('Produto adicionado ao carrinho!');
+  }
+  carregarPedidos() {
+
+    this.estoqueService
+      .getPedidos()
+      .subscribe(res => {
+
+        this.pedidos = res;
+
+      });
+  }
+
 }
 

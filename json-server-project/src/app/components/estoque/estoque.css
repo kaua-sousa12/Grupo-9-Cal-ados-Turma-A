@@ -294,6 +294,7 @@
 .botao-lixeira svg {
   pointer-events: none;
 }
+
 .controle-estoque {
   display: flex;
   gap: 6px;
@@ -319,4 +320,42 @@
 .botao-qtd:hover {
   background: rgba(77, 182, 172, 0.5);
   border-color: #4db6ac;
+}
+
+.acoes-pedido {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-atender,
+.btn-recusar {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn-atender {
+  background: #00c896;
+}
+
+.btn-atender:hover {
+  transform: scale(1.03);
+}
+
+.btn-recusar {
+  background: #ff4d4d;
+}
+
+.btn-recusar:hover {
+  transform: scale(1.03);
+}
+
+.pendente {
+  background: #f7c948;
+  color: #000;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EstoqueService } from './estoque.service';
@@ -19,11 +19,12 @@ interface Produto {
   templateUrl: './estoque.html',
   styleUrls: ['./estoque.css']
 })
-export class Estoque implements OnInit {
+export class Estoque implements OnInit, OnDestroy {
 
   produtos: Produto[] = [];
   itensCarrinho: any[] = [];
   pedidos: any[] = [];
+  intervaloPedidos: any;
 
   novoProduto = {
     nome: '',
@@ -37,6 +38,14 @@ export class Estoque implements OnInit {
   ngOnInit() {
     this.listarTudo();
     this.carregarPedidos();
+
+    this.intervaloPedidos = setInterval(() => {
+      this.carregarPedidos();
+    }, 2000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervaloPedidos);
   }
 
   listarTudo() {
@@ -44,7 +53,7 @@ export class Estoque implements OnInit {
     this.estoqueservice.getCarrinho().subscribe(res => this.itensCarrinho = res);
   }
 
-    carregarPedidos() {
+  carregarPedidos() {
     this.estoqueservice.getPedidos().subscribe(res => {
       this.pedidos = res;
     });
@@ -66,6 +75,27 @@ export class Estoque implements OnInit {
       preco: 0,
       estoque: 0
     };
+  }
+  atualizarStatusPedido(pedido: any, status: string) {
+
+    const pedidoAtualizado = {
+      ...pedido,
+      status: status,
+      mensagem:
+
+        status === 'Atendido'
+          ? 'Seu pedido foi atendido com sucesso!'
+          : 'Seu pedido foi recusado pelo vendedor.'
+    };
+
+    this.estoqueservice
+      .atualizarPedido(pedido.id, pedidoAtualizado)
+      .subscribe(() => {
+
+        pedido.status = status;
+        pedido.mensagem = pedidoAtualizado.mensagem;
+
+      });
   }
 
   alterarEstoque(produto: Produto, delta: number) {

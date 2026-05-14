@@ -123,7 +123,31 @@
             </p>
           </div>
 
-          <span class="etiqueta sucesso">{{ pedido.status }}</span>
+          <span class="etiqueta" [ngClass]="{
+    'sucesso': pedido.status === 'Atendido',
+    'perigo': pedido.status === 'Recusado',
+    'pendente': pedido.status === 'pendente'
+  }">
+
+            {{ pedido.status }}
+
+          </span>
+
+          <div class="acoes-pedido" *ngIf="pedido.status === 'pendente'">
+
+            <button class="btn-atender" (click)="atualizarStatusPedido(pedido, 'Atendido')">
+
+              Atender Pedido
+
+            </button>
+
+            <button class="btn-recusar" (click)="atualizarStatusPedido(pedido, 'Recusado')">
+
+              Recusar Pedido
+
+            </button>
+
+          </div>
         </div>
 
         <div *ngIf="pedidos.length === 0">
