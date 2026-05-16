@@ -30,4 +30,11 @@ export class ApiService {
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.apiUrl}/posts`);
   }
+  
+  atualizarUsuario(id: number, dados: any) {
+    return this.http.put(
+      `http://localhost:3000/usuarios/${id}`,
+      dados
+    );
+  }
 }
