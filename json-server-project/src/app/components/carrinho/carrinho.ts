@@ -52,28 +52,39 @@ export class Carrinho {
   }
 
   finalizarCompra() {
+    console.log(this.carrinho);
+    const usuario = JSON.parse(
+      localStorage.getItem('usuario') || 'null'
+    );
+
     const pedido = {
+      usuarioId: usuario.id,
+      nomeUsuario: usuario.nome,
       itens: this.carrinho.map(item => ({
-        produto: item.nome,
+        produto: item.nome || item.produto,
         quantidade: item.quantidade,
-        preco: item.preco
+        preco: item.preco,
+        imagem: '/' + item.imagem
       })),
+
       total: this.calcularTotal(),
-      status: 'pendente',
+      status: 'Pendente',
       data: new Date()
     };
 
-    this.pedidosService.criarPedido(pedido).subscribe({
-      next: () => {
-        alert('Pedido realizado com sucesso!');
-        this.carrinho = [];
-        localStorage.removeItem('carrinho');
-        this.router.navigate(['/']);
-      },
-      error: () => {
-        alert('Erro ao finalizar pedido');
-      }
-    });
+    this.pedidosService
+      .criarPedido(pedido)
+      .subscribe({
+        next: () => {
+          alert('Pedido realizado com sucesso!');
+          this.carrinho = [];
+          localStorage.removeItem('carrinho');
+          this.router.navigate(['/']);
+        },
+        error: () => {
+          alert('Erro ao finalizar pedido');
+        }
+      });
   }
 
   calcularTotal() {

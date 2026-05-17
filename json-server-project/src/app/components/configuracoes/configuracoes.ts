@@ -14,6 +14,7 @@ import { ApiService } from '../../services/api';
 })
 export class Configuracoes implements OnInit {
   novoNome = '';
+  intervaloPedidos: any;
   mostrarEditarConta = false;
   usuarioLogado: any = null;
   quantidadeCarrinho = 0;
@@ -23,17 +24,28 @@ export class Configuracoes implements OnInit {
     private estoqueService: EstoqueService) { }
 
   ngOnInit(): void {
-    this.usuarioLogado = JSON.parse(localStorage.getItem('usuario') || 'null');
-
+    this.usuarioLogado = JSON.parse(
+      localStorage.getItem('usuario') || 'null'
+    );
     const carrinho = JSON.parse(
       localStorage.getItem('carrinho') || '[]'
     );
-
     this.quantidadeCarrinho = carrinho.reduce(
-      (total: number, item: any) => total + item.quantidade,
+      (total: number, item: any) =>
+        total + item.quantidade,
       0
     );
+    // CARREGA PEDIDOS
     this.carregarPedidos();
+    // ATUALIZA AUTOMATICAMENTE
+    this.intervaloPedidos = setInterval(() => {
+      this.carregarPedidos();
+    }, 2000);
+  }
+  ngOnDestroy(): void {
+
+    clearInterval(this.intervaloPedidos);
+
   }
 
   logout(): void {
@@ -46,14 +58,15 @@ export class Configuracoes implements OnInit {
 
     this.estoqueService
       .getPedidos()
-      .subscribe(res => {
+      .subscribe((res: any[]) => {
 
         this.pedidos = res.filter(
-          (pedido: any) =>
-            pedido.usuarioId === this.usuarioLogado?.id
+          pedido =>
+            pedido.usuarioId === this.usuarioLogado.id
         );
 
       });
+
   }
 
   salvarDadosPessoais() {
@@ -128,41 +141,41 @@ export class Configuracoes implements OnInit {
   }
   salvarNome() {
 
-  const dados = {
+    const dados = {
 
-    nome: this.novoNome
+      nome: this.novoNome
 
-  };
+    };
 
-  this.apiService
-    .atualizarUsuario(
-      this.usuarioLogado.id,
-      dados
-    )
-    .subscribe(() => {
+    this.apiService
+      .atualizarUsuario(
+        this.usuarioLogado.id,
+        dados
+      )
+      .subscribe(() => {
 
-      this.usuarioLogado.nome = this.novoNome;
+        this.usuarioLogado.nome = this.novoNome;
 
-      localStorage.setItem(
-        'usuario',
-        JSON.stringify(this.usuarioLogado)
-      );
+        localStorage.setItem(
+          'usuario',
+          JSON.stringify(this.usuarioLogado)
+        );
 
-      alert('Nome atualizado com sucesso!');
+        alert('Nome atualizado com sucesso!');
 
-      this.fecharEditarConta();
+        this.fecharEditarConta();
 
-    });
+      });
 
-}
+  }
 
-abrirEditarConta() {
+  abrirEditarConta() {
 
-  this.novoNome = this.usuarioLogado.nome;
+    this.novoNome = this.usuarioLogado.nome;
 
-  this.mostrarEditarConta = true;
+    this.mostrarEditarConta = true;
 
-}
+  }
 
   fecharEditarConta() {
 

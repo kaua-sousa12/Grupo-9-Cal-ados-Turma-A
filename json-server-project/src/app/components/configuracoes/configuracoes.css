@@ -418,6 +418,95 @@ input[type="text"]:focus {
     letter-spacing: 1px;
 }
 
+.pedido-total {
+    margin-top: 15px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-align: right;
+}
+
+.pedido-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-container {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+}
+
+.pedido-status {
+    padding: 6px 12px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+/* TOOLTIP */
+.status-tooltip {
+    position: absolute;
+
+    top: 120%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: 260px;
+
+    background: #111;
+    color: #fff;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.2s ease;
+
+    z-index: 100;
+}
+
+/* APARECER */
+.status-container:hover .status-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* STATUS */
+.pendente {
+    background: #ffe7a0;
+    color: #8a6300;
+}
+
+.atendido {
+    background: #c8ffd4;
+    color: #0d7a2f;
+}
+
+.recusado {
+    background: #ffd0d0;
+    color: #a10000;
+}
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
 

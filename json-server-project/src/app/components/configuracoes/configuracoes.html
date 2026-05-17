@@ -251,29 +251,79 @@
 
                     <div class="pedido-item" *ngFor="let pedido of pedidos">
 
+                        <!-- HEADER -->
                         <div class="pedido-header">
 
-                            <span class="status-tag entregue">
-                                Pedido #{{ pedido.id }}
-                            </span>
+                            <div class="pedido-info">
+
+                                <!-- ID -->
+                                <span class="status-tag">
+
+                                    Pedido #{{ pedido.id }}
+
+                                </span>
+
+                                <!-- STATUS -->
+                                <div class="status-container">
+
+                                    <span class="pedido-status" [ngClass]="{
+            'pendente': pedido.status === 'Pendente',
+            'atendido': pedido.status === 'Atendido',
+            'recusado': pedido.status === 'Recusado'
+        }">
+
+                                        {{ pedido.status }}
+
+                                    </span>
+
+                                    <!-- TOOLTIP -->
+                                    <div class="status-tooltip" *ngIf="
+            pedido.status === 'Atendido' ||
+            pedido.status === 'Recusado'
+        ">
+
+                                        {{ pedido.mensagemStatus }}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
-                        <div class="pedido-produto">
+                        <!-- PRODUTOS -->
+                        <div class="pedido-produto" *ngFor="let item of pedido.itens">
 
-                            <img [src]="pedido.imagem" [alt]="pedido.nomeProduto" class="product-thumb">
+                            <!-- IMAGEM -->
+                            <img [src]="item.imagem" [alt]="item.produto" class="product-thumb">
 
+                            <!-- INFO -->
                             <div class="product-info">
 
                                 <strong>
-                                    R$ {{ pedido.preco }}
+                                    R$ {{ item.preco.toFixed(2) }}
                                 </strong>
 
                                 <span>
-                                    {{ pedido.nomeProduto }}
+                                    {{ item.produto }}
                                 </span>
 
+                                <small>
+                                    Quantidade: {{ item.quantidade }}
+                                </small>
+
                             </div>
+
+                        </div>
+
+                        <!-- TOTAL -->
+                        <div class="pedido-total">
+
+                            Total:
+                            <strong>
+                                R$ {{ pedido.total.toFixed(2) }}
+                            </strong>
 
                         </div>
 

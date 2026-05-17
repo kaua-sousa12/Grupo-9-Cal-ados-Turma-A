@@ -5,6 +5,7 @@
 
       <div class="perfil">
         <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="Avatar">
+
         <div class="perfil-info">
           <a href="" class="perfil-link">Perfil</a>
           <span class="perfil-greeting">Olá, Admin</span>
@@ -27,13 +28,18 @@
     </header>
 
     <div class="grade-dashboard">
+
+      <!-- INVENTÁRIO -->
       <section class="coluna-inventario">
+
         <div class="cartao">
           <h3>Novo produto</h3>
+
           <div class="formulario-grid">
 
             <input type="text" placeholder="Nome do produto" class="input-full" [(ngModel)]="novoProduto.nome"
               name="nome">
+
             <input type="text" placeholder="Categoria" [(ngModel)]="novoProduto.categoria" name="categoria">
 
             <input type="number" placeholder="Qtd" style="max-width: 80px;" [(ngModel)]="novoProduto.estoque"
@@ -41,13 +47,20 @@
 
             <input type="number" placeholder="Preço (R$)" [(ngModel)]="novoProduto.preco" name="preco">
 
-            <button class="botao-primario" (click)="cadastrarProduto()">Cadastrar</button>
+            <button class="botao-primario" (click)="cadastrarProduto()">
+              Cadastrar
+            </button>
+
           </div>
         </div>
 
+        <!-- TABELA -->
         <div class="cartao">
+
           <h3>Inventário Atual</h3>
+
           <table class="tabela-dados">
+
             <thead>
               <tr>
                 <th>Item</th>
@@ -56,26 +69,42 @@
                 <th>Qtd</th>
                 <th>Status</th>
                 <th>Ações</th>
-
               </tr>
             </thead>
+
             <tbody>
+
               <tr *ngFor="let produto of produtos">
+
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.categoria }}</td>
                 <td>{{ produto.preco | currency:'BRL' }}</td>
                 <td>{{ produto.estoque }}</td>
+
                 <td>
                   <span class="etiqueta" [ngClass]="getStatus(produto) === 'Em dia' ? 'sucesso' : 'perigo'">
                     {{ getStatus(produto) }}
                   </span>
                 </td>
+
                 <td>
+
                   <div class="controle-estoque">
-                    <button class="botao-qtd" (click)="alterarEstoque(produto, -1)">−</button>
-                    <button class="botao-qtd" (click)="alterarEstoque(produto, +1)">+</button>
-                    <button class="botao-contorno">Editar</button>
+
+                    <button class="botao-qtd" (click)="alterarEstoque(produto, -1)">
+                      −
+                    </button>
+
+                    <button class="botao-qtd" (click)="alterarEstoque(produto, +1)">
+                      +
+                    </button>
+
+                    <button class="botao-contorno">
+                      Editar
+                    </button>
+
                     <button class="botao-lixeira" (click)="remover(produto.id)" title="Remover produto">
+
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 6h18"></path>
@@ -84,77 +113,116 @@
                         <line x1="10" y1="11" x2="10" y2="17"></line>
                         <line x1="14" y1="11" x2="14" y2="17"></line>
                       </svg>
+
                     </button>
+
                   </div>
+
                 </td>
+
               </tr>
+
             </tbody>
+
           </table>
+
         </div>
+
       </section>
 
+      <!-- PEDIDOS -->
       <aside class="coluna-pedidos">
+
         <h3>Fila de Pedidos (Carrinho)</h3>
 
+        <!-- ITENS DO CARRINHO -->
         <div *ngFor="let item of itensCarrinho" class="cartao-pedido">
+
           <strong>ID Produto: #{{ item.produtoId }}</strong>
-          <p class="pedido-info">Item: {{ item.nome }}</p>
-          <p class="pedido-info">Qtd Reservada: {{ item.quantidade }}</p>
-          <span class="etiqueta sucesso">Em carrinho</span>
+
+          <p class="pedido-info">
+            Item: {{ item.nome }}
+          </p>
+
+          <p class="pedido-info">
+            Qtd Reservada: {{ item.quantidade }}
+          </p>
+
+          <span class="etiqueta Pendente">
+            Pendente
+          </span>
+
         </div>
 
+        <!-- CARRINHO VAZIO -->
         <div *ngIf="itensCarrinho.length === 0">
-          <p class="pedido-info">Nenhum item no carrinho.</p>
+
+          <p class="pedido-info">
+            Nenhum item no carrinho.
+          </p>
+
         </div>
 
         <hr>
 
+        <!-- PEDIDOS FINALIZADOS -->
         <h3>Pedidos Finalizados</h3>
 
         <div *ngFor="let pedido of pedidos" class="cartao-pedido">
-          <strong>Pedido #{{ pedido.id }}</strong>
 
-          <p class="pedido-info">Total: R$ {{ pedido.total.toFixed(2) }}</p>
-          <p class="pedido-info">Status: {{ pedido.status }}</p>
+          <strong>
+            Pedido #{{ pedido.id }}
+          </strong>
+
+          <p class="pedido-info">
+            Total: R$ {{ pedido.total.toFixed(2) }}
+          </p>
+
+          <p class="pedido-info">
+            Status: {{ pedido.status }}
+          </p>
 
           <div *ngFor="let item of pedido.itens">
+
             <p class="pedido-info">
               {{ item.produto }} - Qtd: {{ item.quantidade }}
             </p>
+
           </div>
 
           <span class="etiqueta" [ngClass]="{
-    'sucesso': pedido.status === 'Atendido',
-    'perigo': pedido.status === 'Recusado',
-    'pendente': pedido.status === 'pendente'
-  }">
-
+              'sucesso': pedido.status === 'Atendido',
+              'perigo': pedido.status === 'Recusado',
+              'Pendente': pedido.status === 'Pendente'
+            }">
             {{ pedido.status }}
-
           </span>
 
-          <div class="acoes-pedido" *ngIf="pedido.status === 'pendente'">
+          <div class="acoes-pedido" *ngIf="pedido.status === 'Pendente'">
 
             <button class="btn-atender" (click)="atualizarStatusPedido(pedido, 'Atendido')">
-
               Atender Pedido
-
             </button>
 
             <button class="btn-recusar" (click)="atualizarStatusPedido(pedido, 'Recusado')">
-
               Recusar Pedido
-
             </button>
 
           </div>
+
         </div>
 
+        <!-- SEM PEDIDOS -->
         <div *ngIf="pedidos.length === 0">
-          <p class="pedido-info">Nenhum pedido finalizado.</p>
+
+          <p class="pedido-info">
+            Nenhum pedido finalizado.
+          </p>
+
         </div>
 
       </aside>
+
     </div>
   </main>
 </div>

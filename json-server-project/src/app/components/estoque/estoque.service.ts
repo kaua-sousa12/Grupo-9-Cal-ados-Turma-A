@@ -21,8 +21,8 @@ export class EstoqueService {
     return this.http.get<any[]>(this.apiPedidos);
   }
   atualizarPedido(id: string, pedido: any) {
-    return this.http.put<any>(
-      `${this.apiUrl}/pedidos/${id}`,
+    return this.http.patch<any>(
+      `${this.apiPedidos}/${id}`,
       pedido
     );
   }
@@ -45,4 +45,5 @@ export class EstoqueService {
   adicionarAoCarrinho(item: any): Observable<any> {
     return this.http.post<any>(this.apiCarrinho, item);
   }
+
 }
