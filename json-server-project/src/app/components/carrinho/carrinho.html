@@ -135,35 +135,35 @@
 
                 </div>
 
-                <div class="summary-field">
+               <div class="summary-field">
+                <label>Calcular Frete:</label>
+  <div class="freight-input-group">
+    <input type="text" class="freight-input" placeholder="Digite seu CEP (00000-000)"
+      [(ngModel)]="cepDestino">
+    <button class="btn-calculate-freight" (click)="calcularFrete()">
+      {{ calculandoFrete ? 'Calculando...' : 'CALCULAR' }}
+    </button>
+  </div>
+  <p *ngIf="erroFrete" style="color:red; font-size:12px">{{ erroFrete }}</p>
+</div>
 
-                    <label>
-                        Calcular Frete:
-                    </label>
+<div *ngIf="freteOpcoes.length > 0">
+  <p style="font-weight:bold; margin: 8px 0">Escolha o frete:</p>
+  <div *ngFor="let opcao of freteOpcoes"
+       (click)="selecionarFrete(opcao)"
+       [style.border]="freteSelecionado?.id === opcao.id ? '2px solid black' : '1px solid #ccc'"
+       style="padding:8px; margin:4px 0; cursor:pointer; border-radius:6px">
+    <strong>{{ opcao.name }}</strong> — R$ {{ opcao.price }}
+    ({{ opcao.delivery_time }} dias úteis)
+  </div>
+</div>
 
-                    <div class="freight-input-group">
-
-                        <input type="text" class="freight-input" placeholder="Digite seu CEP (00000-000)">
-
-                        <button class="btn-calculate-freight">
-                            CALCULAR
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <div class="summary-row">
-
-                    <span>
-                        Frete:
-                    </span>
-
-                    <strong class="freight-price">
-                        R$ 00,00 (PAC)
-                    </strong>
-
-                </div>
+<div class="summary-row">
+  <span>Frete:</span>
+  <strong class="freight-price">
+    {{ freteSelecionado ? 'R$ ' + freteSelecionado.price + ' (' + freteSelecionado.name + ')' : 'R$ 00,00' }}
+  </strong>
+</div>
 
                 <div class="summary-field">
 

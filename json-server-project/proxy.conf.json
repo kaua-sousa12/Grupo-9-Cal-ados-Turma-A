@@ -4,5 +4,14 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
+  },
+  "/api/melhorenvio": {
+    "target": "https://sandbox.melhorenvio.com.br",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/melhorenvio": "/api/v2/me"
+    },
+    "secure": true,
+    "logLevel": "debug"
   }
 }
